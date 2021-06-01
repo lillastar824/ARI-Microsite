@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ARI">
+    <title>ARI</title>
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- css links -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/elements.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+
+<body>
+    <main id="pinContainer" class="initail-top-section">
+        <section id="firstScene" class="panel initail-top-section-content">
+            <h1>Welcome</h1>
+            <h3>To begin, please start scrolling</h3>
+            <span id="firstIntroDown" class="mouse-move-down">
+                <span class="move-down"></span>
+            </span>
+        </section>
+        <section id="firstIntro" class="panel first-intro">
+            <div class="first-intro-video-box">
+                <video id="firstIntroVideo" preload>
+                    <source src="assets/video/SILOFICATION_Preroll_Teaser1.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="tint" style="background-color: rgb(255, 255, 255); opacity: 0;"></div>
+        </section>
+        <section id="roadmapSec" class="panel roadmap-sec">
+            <div class="roadmap-sec-video-box">
+                <video id="roadMapVideo" preload="auto" muted="" plays-inline="">
+                    <source src="assets/video/road_map.mp4" type="video/mp4">
+                </video>
+                <div class="text-container">
+                    <div class="text-box trap-box-1">
+                        <div class="box-cont">
+                            <h3 class="trap-title">Trap 1</h3>
+                            <h2>Budget Uncertainty</h2>
+                        </div>
+                    </div>
+                    <div class="text-box trap-box-1-1">
+                        <div class="box-cont">
+                             <h6>Have you ever underestinated your fleet's operating budget?</h6>
+                        </div>
+                    </div>
+                </div>
+                <div id="roadMapVideoScrollContainer" class="roadmap-scroll-container">
+                    <div class="sub-video-1-button"></div>
+                    <div class="sub-video-2-button"></div>
+                </div>
+            </div>
+        </section>
+
+        <div class="sub-video-container">
+            <div class="sub-video-box sub-video-1-cont">
+                <video id="subVideo1" preload>
+                    <source src="assets/video/SILOFICATION_Preroll_Teaser1.mp4" type="video/mp4">
+                </video>
+                <button class="sub-video-close sub-video-1-close"><img src="assets/img/times-solid.svg"></button>
+            </div>
+            <div class="sub-video-box sub-video-2-cont">
+                <video id="subVideo2" preload>
+                    <source src="assets/video/SILOFICATION_Preroll_Teaser1.mp4" type="video/mp4">
+                </video>
+                <button class="sub-video-close sub-video-2-close"><img src="assets/img/times-solid.svg"></button>
+            </div>
+            <div class="sub-video-box sub-video-3-cont">
+                <video id="subVideo3" preload>
+                    <source src="assets/video/SILOFICATION_Preroll_Teaser1.mp4" type="video/mp4">
+                </video>
+                <button class="sub-video-close sub-video-3-close"><img src="assets/img/times-solid.svg"></button>
+            </div>
+            <div class="sub-video-box sub-video-4-cont">
+                <video id="subVideo4" preload>
+                    <source src="assets/video/SILOFICATION_Preroll_Teaser1.mp4" type="video/mp4">
+                </video>
+                <button class="sub-video-close sub-video-4-close"><img src="assets/img/times-solid.svg"></button>
+            </div>
+        </div>
+        <div class="progress-bar-sec">
+            <div class="progress-bar-line"><span></span></div>
+            <ul>
+                <li><a id="roadMap1"></a></li>
+                <li><a id="roadMap2"></a></li>
+                <li><a id="roadMap3"></a></li>
+                <li><a id="roadMap4"></a></li>
+                <li><a id="roadMap5"></a></li>
+            </ul>
+        </div>
+        <div class="speaker-button">
+            <span class="volume-up-icon"><img src="assets/img/volume-up-solid.svg"></span>
+            <span class="volume-mute-icon"><img src="assets/img/volume-mute-solid.svg"></span>
+        </div>
+    </main>
+    <div class="cursor">
+        <div class="cursor__ball cursor__ball--big ">
+            <svg height="30" width="30">
+                <circle cx="15" cy="15" r="12" stroke-width="0"></circle>
+            </svg>
+        </div>
+        <div class="cursor__ball cursor__ball--small">
+            <svg height="10" width="10">
+                <circle cx="5" cy="5" r="4" stroke-width="0"></circle>
+            </svg>
+        </div>
+    </div>
+    <!-- scripts -->
+    <script src="assets/js/jquery-3.2.1.min.js"></script>
+    <script src="assets/js/popper.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.2/ScrollToPlugin.min.js"></script>
+    <script src="assets/js/ScrollMagic.min.js"></script>
+    <script src="assets/js/debug.addIndicators.min.js"></script>
+    <script src="assets/js/TweenMax.min.js"></script>
+    <script src="assets/js/animation.gsap.js"></script>
+    <script src="assets/js/custom.js"></script>
+    <!-- Start of Async Drift Code -->
+    <script>
+    "use strict";
+
+    ! function() {
+        var t = window.driftt = window.drift = window.driftt || [];
+        if (!t.init) {
+            if (t.invoked) return void(window.console && console.error && console.error("Drift snippet included twice."));
+            t.invoked = !0, t.methods = ["identify", "config", "track", "reset", "debug", "show", "ping", "page", "hide", "off", "on"],
+                t.factory = function(e) {
+                    return function() {
+                        var n = Array.prototype.slice.call(arguments);
+                        return n.unshift(e), t.push(n), t;
+                    };
+                }, t.methods.forEach(function(e) {
+                    t[e] = t.factory(e);
+                }), t.load = function(t) {
+                    var e = 3e5,
+                        n = Math.ceil(new Date() / e) * e,
+                        o = document.createElement("script");
+                    o.type = "text/javascript", o.async = !0, o.crossorigin = "anonymous", o.src = "https://js.driftt.com/include/" + n + "/" + t + ".js";
+                    var i = document.getElementsByTagName("script")[0];
+                    i.parentNode.insertBefore(o, i);
+                };
+        }
+    }();
+    drift.SNIPPET_VERSION = '0.3.1';
+    drift.load('hcbtmfbkytxv');
+    </script>
+    <!-- End of Async Drift Code -->
+</body>
+
+</html>
