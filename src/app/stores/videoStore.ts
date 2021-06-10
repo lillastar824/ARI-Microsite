@@ -1,65 +1,83 @@
-import { makeAutoObservable, reaction } from "mobx";
-import { Video } from "../models/video";
-
-const VIDEOS = [
-  { id: 'firstIntroVideo', src: 'assets/video/SILOFICATION_Preroll_Teaser1.mp4' },
-  { id: 'roadMapVideo', src: 'assets/video/road_map.mp4' },
-  { id: 'subVideo1', src: 'assets/video/SILOFICATION_Preroll_Teaser1.mp4' },
-  { id: 'subVideo2', src: 'assets/video/SILOFICATION_Preroll_Teaser1.mp4' },
-  { id: 'subVideo3', src: 'assets/video/SILOFICATION_Preroll_Teaser1.mp4' },
-  { id: 'subVideo4', src: 'assets/video/SILOFICATION_Preroll_Teaser1.mp4' }
-];
-
+import { IDBPDatabase, openDB } from 'idb';
+import { makeAutoObservable } from 'mobx';
 export default class VideoStore {
-  loading = false;
-  loadingInitial = false;
-  selectedVideo: Video | undefined = undefined;
-  videoRegistry = new Map<string, Video>();
-  predicate = new Map().set('all', true);
+  private dbName: string;
+  private db: any;
 
-  constructor() {
-    makeAutoObservable(this);
-
-    reaction(
-      () => this.predicate.keys(),
-      () => {
-        this.videoRegistry.clear();
-        this.loadVideos();
-      }
-    )
+  constructor(dbName: string) {
+    makeAutoObservable(this)
+    this.dbName = dbName;
   }
 
-  setLoadingInitial = (state: boolean) => {
-    this.loadingInitial = state;
-  }
-
-  loadVideos = async () => {
-    this.loadingInitial = true;
+  public async createObjectStore(tableNames: string[]) {
     try {
-      VIDEOS.forEach(video => {
-        this.setVideo(video);
-      })
-      this.setLoadingInitial(false);
+      this.db = await openDB(this.dbName, 1, {
+        upgrade(db: IDBPDatabase) {
+          for (const tableName of tableNames) {
+            if (db.objectStoreNames.contains(tableName)) {
+              continue;
+            }
+            db.createObjectStore(tableName, { autoIncrement: true, keyPath: 'id' });
+          }
+        },
+      });
     } catch (error) {
-      console.log(error);
-      this.setLoadingInitial(false);
+      return false;
     }
   }
 
-  loadVideo = async (id: string) => {
-    let video = this.getVideo(id);
-    if (video) {
-      this.selectedVideo = video;
-      return video;
+  public async getValue(tableName: string, id: number) {
+    const tx = this.db.transaction(tableName, 'readonly');
+    const idbstore = tx.objectStore(tableName);
+    const result = await idbstore.get(id);
+    console.log('Get Data ', JSON.stringify(result));
+    return result;
+  }
+
+  public async getValueByName(tableName: string, name: string) {
+    const tx = this.db.transaction(tableName, 'readonly');
+    const idbstore = tx.objectStore(tableName);
+    const result = await idbstore.get(name);
+    console.log('Get Data ', JSON.stringify(result));
+    return result;
+  }
+
+  public async getAllValue(tableName: string) {
+    const tx = this.db.transaction(tableName, 'readonly');
+    const idbstore = tx.objectStore(tableName);
+    const result = await idbstore.getAll();
+    console.log('Get All Data', JSON.stringify(result));
+    return result;
+  }
+
+  public async putValue(tableName: string, value: object) {
+    const tx = this.db.transaction(tableName, 'readwrite');
+    const idbstore = tx.objectStore(tableName);
+    const result = await idbstore.put(value);
+    console.log('Put Data ', JSON.stringify(result));
+    return result;
+  }
+
+  public async putBulkValue(tableName: string, values: object[]) {
+    const tx = this.db.transaction(tableName, 'readwrite');
+    const idbstore = tx.objectStore(tableName);
+    for (const value of values) {
+      const result = await idbstore.put(value);
+      console.log('Put Bulk Data ', JSON.stringify(result));
     }
+    return this.getAllValue(tableName);
   }
 
-  private setVideo = (video: Video) => {
-    this.videoRegistry.set(video.id, video);
+  public async deleteValue(tableName: string, id: number) {
+    const tx = this.db.transaction(tableName, 'readwrite');
+    const idbstore = tx.objectStore(tableName);
+    const result = await idbstore.get(id);
+    if (!result) {
+      console.log('Id not found', id);
+      return result;
+    }
+    await idbstore.delete(id);
+    console.log('Deleted Data', id);
+    return id;
   }
-
-  private getVideo = (id: string) => {
-    return this.videoRegistry.get(id);
-  }
-
 }

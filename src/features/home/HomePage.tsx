@@ -1,17 +1,21 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { observer } from 'mobx-react-lite';
 import { Power1, TimelineMax, TweenMax } from "gsap";
+import { useStore } from '../../app/stores/store';
 
 export default observer(function HomePage() {
+  const { commonStore, videoStore } = useStore();
+
   let firstScene: any;
   let ourChatBotRef: any;
   let jumpHintsRef: any;
   let firstIntro: any;
   let firstIntroVideo: any;
   let secondIntro: any;
-  let secondIntroVideo: any;
+  let firstIntroVdoWrap: any;
   let roadMapSec: any;
   let roadMapVideo: any;
+  let roadMapVideoMp4 = useRef();
   let subVideo1Cont: any;
   let subVideo2Cont: any;
   let subVideo3Cont: any;
@@ -84,19 +88,13 @@ export default observer(function HomePage() {
   let $bigBall: any;
   let $smallBall: any;
   let roadmapvideoTime: number = 0;
+  let roadMapVdoSrc = useRef('');
   const tlS = new TimelineMax();
   const delay = 1000;
   const [muted, setMuted] = useState(false);
   const [showChatBotTxt, setShowChatBotTxt] = useState(false);
-
-  useEffect(() => {
-    let chatBotTxtTimer = setTimeout(() => setShowChatBotTxt(true), delay * 5);
-
-    return () => {
-      clearTimeout(chatBotTxtTimer);
-    };
-  }, [])
-
+  // const [roadMapVdo, setRoadMapVdo] = useState();
+  // const roadMapVideoMp4 = useRef();
 
   const getFirstScene = (elem: any) => {
     firstScene = elem
@@ -116,8 +114,8 @@ export default observer(function HomePage() {
   const getSecondIntro = (elem: any) => {
     secondIntro = elem
   }
-  const getSecondIntroVideo = (elem: any) => {
-    secondIntroVideo = elem
+  const getFirstIntroVdoWrap = (elem: any) => {
+    firstIntroVdoWrap = elem
   }
   const getRoadMapGapImg = (elem: any) => {
     roadMapGapImg = elem
@@ -339,6 +337,24 @@ export default observer(function HomePage() {
     $smallBall = elem
   }
 
+
+  useEffect(() => {
+    let chatBotTxtTimer = setTimeout(() => setShowChatBotTxt(true), delay * 5);
+    roadMapVdoSrc.current = commonStore.getRoadmapVdo;
+    const clearTime = setInterval(() => {
+      if (commonStore.getRoadmapVdo) {
+        roadMapVdoSrc.current = commonStore.getRoadmapVdo;
+        console.log('got the url: ', commonStore.getRoadmapVdo);
+      }
+    }, 10000);
+    // roadMapVdoSrc.current = commonStore.getRoadmapVdo;
+
+    return () => {
+      clearTimeout(chatBotTxtTimer);
+      clearTimeout(clearTime);
+    };
+  }, [commonStore, videoStore]);
+
   const onWheelFirstScene = (e: any) => {
     console.log(e.deltaY)
     if (e.deltaY / 100 < 0) {
@@ -355,11 +371,10 @@ export default observer(function HomePage() {
     console.log(e.deltaY)
     if (e.deltaY / 100 < 0) {
       pauseFirstIntroVideo();
-      e.target.classList.remove('animated');
     } else {
       pauseFirstIntroVideo();
-      e.target.classList.add('animated');
-      firstIntroDownShaderTransition()
+      firstIntroVdoWrap.style.transform = 'translateX(' + -100 + '%)';
+      setTimeout(() => roadMapSec.classList.add('open'), 2000)
     }
   }
 
@@ -367,6 +382,14 @@ export default observer(function HomePage() {
     console.log(e.deltaY)
     if (roadmapvideoTime >= 100) {
       if (e.deltaY / 100 > 0) {
+        return false;
+      }
+    }
+    if (roadmapvideoTime <= 0) {
+      if (e.deltaY / 100 < 0) {
+        firstIntroVdoWrap.style.transform = 'translateX(' + 0 + '%)';
+        setTimeout(() => roadMapSec.classList.remove('open'))
+        playFirstIntroVideo();
         return false;
       }
     }
@@ -394,13 +417,16 @@ export default observer(function HomePage() {
 
     console.log(roadMapVideo.currentTime);
     trapBox1Cont.style.transform = 'translateX(' + (200 - roadMapVideo.currentTime * 40) + '%)';
-    setTimeout(() => trapBox1TypingRef.classList.remove('hideAri'), 600);
+    // if (roadMapVideo.currentTime > 3.5) {
+    trapBox1TypingRef.classList.remove('hideAri');
+    // }
 
     if (roadMapVideo.currentTime > 4) {
       trapBox2.classList.add('show')
       trapBox2Cont.style.transform = 'translateX(' + (200 - roadMapVideo.currentTime * 40) + '%)';
-
-      setTimeout(() => trapBox2TypingRef.classList.remove('hideAri'), 600);
+      // if (roadMapVideo.currentTime > 6) {
+      trapBox2TypingRef.classList.remove('hideAri');
+      // }
     } else {
       trapBox2.classList.remove('show')
     }
@@ -408,8 +434,9 @@ export default observer(function HomePage() {
     if (roadMapVideo.currentTime > 5) {
       trapBox3.classList.add('show')
       trapBox3Cont.style.transform = 'translateX(' + (200 - roadMapVideo.currentTime * 35) + '%)';
-
-      setTimeout(() => trapBox3TypingRef.classList.remove('hideAri'), 600);
+      // if (roadMapVideo.currentTime > 6.5) {
+      trapBox3TypingRef.classList.remove('hideAri');
+      // }
     } else {
       trapBox3.classList.remove('show')
     }
@@ -417,25 +444,28 @@ export default observer(function HomePage() {
     if (roadMapVideo.currentTime > 10) {
       trapBox4.classList.add('show')
       trapBox4Cont.style.transform = 'translateX(' + (200 - roadMapVideo.currentTime * 40) + '%)';
-
-      setTimeout(() => trapBox4TypingRef.classList.remove('hideAri'), 600);
+      // if (roadMapVideo.currentTime > 11) {
+      trapBox4TypingRef.classList.remove('hideAri');
+      // }
     } else {
       trapBox4.classList.remove('show')
     }
     if (roadMapVideo.currentTime > 15) {
       trapBox5.classList.add('show')
       trapBox5Cont.style.transform = 'translateX(' + (200 - roadMapVideo.currentTime * 35) + '%)';
-
-      setTimeout(() => trapBox5TypingRef.classList.remove('hideAri'), 600);
+      // if (roadMapVideo.currentTime > 16) {
+      trapBox5TypingRef.classList.remove('hideAri');
+      // }
     } else {
       trapBox5.classList.remove('show')
     }
     if (roadMapVideo.currentTime > 20) {
       trapBox6.classList.add('show')
-
       trapBox6Cont.style.transform = 'translateX(' + (200 - roadMapVideo.currentTime * 30) + '%)';
+      // if (roadMapVideo.currentTime > 21) {
       trapBox6TypingRef.classList.remove('hideAri');
       setTimeout(() => trapBox4TypingRef.classList.remove('hideAri'), 600);
+      // }
     } else {
       trapBox6.classList.remove('show')
     }
@@ -551,7 +581,7 @@ export default observer(function HomePage() {
       .to(".tint", 1, {
         ease: Power1.easeIn,
         onComplete: () => {
-          setTimeout(() => roadMapSec.classList.add('open'), 100);
+          roadMapSec.classList.add('open');
         }
       }, "-=1.75");
   }
@@ -853,17 +883,15 @@ export default observer(function HomePage() {
           </span>
         </section>
         <section ref={getFirstIntro} id='firstIntro' className='panel first-intro' onWheel={(e) => onWheelFirstIntro(e)} onClick={(e) => onClickFirstIntro(e)}>
-          <div className='first-intro-video-box'>
+          <div className='first-intro-video-box' ref={getFirstIntroVdoWrap}>
             <video ref={getFirstIntroVideo} id='firstIntroVideo' preload='auto' controls muted={muted}>
               <source src='https://s3.amazonaws.com/stream.arifleet.com/supplychain_2021/TRAP%201_BUDGET%20UNCERTAINTY%20Outro1.mp4' type='video/mp4' />
             </video>
           </div>
-          <div className='tint' style={{ backgroundColor: `rgb(255, 255, 255)`, opacity: 0 }}></div>
         </section>
         <section id='roadmapSec' ref={getRoadMapSec} className='panel roadmap-sec' onWheel={(e) => onWheelRoadmapSec(e)}>
-          <div className='roadmap-sec-video-box'>
-            <video id='roadMapVideo' preload='auto' playsInline ref={getRoadMapVideo} muted={muted}>
-              <source src='assets/video/main_5_no_titles_3mbps.mp4' type='video/mp4' />
+          <div className='roadmap-sec-video-box' id='roadMapVdoWrap'>
+            <video id='roadMapVideo' ref={getRoadMapVideo} muted={muted} src={roadMapVdoSrc.current}>
             </video>
             <div className='text-container'>
               <div className='text-box trap-box-1'>
