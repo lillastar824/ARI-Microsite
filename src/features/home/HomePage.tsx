@@ -88,6 +88,7 @@ export default function HomePage() {
   let roadMap5: any;
   let $bigBall: any;
   let $smallBall: any;
+  let introVideoTime: number = 0;
   let roadmapvideoTime: number = 0;
   let roadMapVdoSrc = useRef('');
   const tlS = new TimelineMax();
@@ -376,17 +377,35 @@ export default function HomePage() {
     console.log(e.deltaY)
     if (e.deltaY / 100 < 0) {
       pauseFirstIntroVideo();
+      if (!(introVideoTime < 1)) {
+        introVideoTime = introVideoTime - 5;
+        firstIntroVdoWrap.style.transform = 'translateX(' + (-0) + '%)';
+        roadMapVideo.style.transform = 'translateX(' + (-0) + '%)';
+      }
     } else {
       pauseFirstIntroVideo();
-      firstIntroVdoWrap.style.transform = 'translateX(' + -100 + '%)';
-      setTimeout(() => {
-        roadMapSec.classList.add('open');
-      }, 2000)
+      if (!(introVideoTime > 99)) {
+        introVideoTime = introVideoTime + 5;
+        firstIntroVdoWrap.style.transform = 'translateX(' + (-100) + '%)';
+        roadMapVideo.style.transform = 'translateX(' + (-100) + '%)';
+        // if (introVideoTime >= 100) {
+        setTimeout(() => {
+          roadMapSec.classList.add('open');
+        }, 2000)
+        // }
+      }
     }
+
+    console.log('introTime:', introVideoTime)
   }
 
   const onWheelRoadmapSec = (e: any) => {
+    if (!roadMapSec.classList.contains('open')) {
+      return false;
+    }
     console.log(e.deltaY)
+
+    introVideoTime = 0;
     if (roadmapvideoTime >= 100) {
       if (e.deltaY / 100 > 0) {
         return false;
@@ -891,14 +910,14 @@ export default function HomePage() {
         </section>
         <section ref={getFirstIntro} id='firstIntro' className='panel first-intro' onWheel={(e) => onWheelFirstIntro(e)} onClick={(e) => onClickFirstIntro(e)}>
           <div className='first-intro-video-box' ref={getFirstIntroVdoWrap}>
-            <video ref={getFirstIntroVideo} id='firstIntroVideo' preload='auto' controls muted={muted}>
+            <video ref={getFirstIntroVideo} id='firstIntroVideo' preload='auto' muted={muted}>
               <source src='https://s3.amazonaws.com/stream.arifleet.com/supplychain_2021/TRAP%201_BUDGET%20UNCERTAINTY%20Outro1.mp4' type='video/mp4' />
             </video>
           </div>
         </section>
         <section id='roadmapSec' ref={getRoadMapSec} className='panel roadmap-sec' onWheel={(e) => onWheelRoadmapSec(e)}>
           <div className='roadmap-sec-video-box' id='roadMapVdoWrap'>
-            <video id='roadMapVideo' ref={getRoadMapVideo} muted={muted} src={roadMapVdoSrc.current}>
+            <video id='roadMapVideo' ref={getRoadMapVideo} muted={muted} src={roadMapVdoSrc.current} height="calc(100vh)">
               {/* {!roadMapVdoSrc.current && (
                 <source src={'assets/video/fresh-background.mp4'} type='video/mp4'></source>
               )} */}
