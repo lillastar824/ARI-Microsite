@@ -14,14 +14,16 @@ function App() {
   useEffect(() => {
 
     const runIndexDb = async () => {
-      if (commonStore.getRoadmapVdo) { commonStore.setAppLoaded(); }
+      // if(commonStore.appLoaded)
+      commonStore.setAppLoaded();
+
       await videoStore.createObjectStore(['roadMaps']);
       await videoStore.getValue('roadMaps', 1).then(v => {
         if (v) {
           const blob = new Blob([v.mp4], { type: 'video/mp4' });
           const blobUrl = URL.createObjectURL(blob);
           commonStore.setRoadmapVdo(blobUrl);
-          // commonStore.setAppLoaded();
+          commonStore.setAppLoaded();
         } else {
           fetch('assets/video/fresh-background.mp4')
             .then(v => {
@@ -37,14 +39,14 @@ function App() {
               const blobUrl = URL.createObjectURL(vdo);
               commonStore.setRoadmapVdo(blobUrl);
               // roadMapVdoSrc.current = blobUrl;
-              commonStore.setAppLoaded();
+              // commonStore.setAppLoaded();
             });
         }
       }).catch(e => console.log(e));
     }
     runIndexDb();
     // if (commonStore.getRoadmapVdo) {
-    commonStore.setAppLoaded();
+    // commonStore.setAppLoaded();
     // }
   }, [commonStore, videoStore])
 

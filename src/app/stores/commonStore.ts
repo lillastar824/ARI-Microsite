@@ -17,6 +17,9 @@ export default class CommonStore {
     setAppLoaded = () => {
         this.appLoaded = true;
     }
+    setAppNotLoaded = () => {
+        this.appLoaded = false;
+    }
 
     setRoadmapVdo = (blobUrl: string) => {
         this.getRoadmapVdo = blobUrl;

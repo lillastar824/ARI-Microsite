@@ -1,5 +1,8 @@
 body {
   background-color: #EAEAEA !important;
+}
+
+body, h1, h2, h3, h5, h6, p, div {
   font-family: "Montserrat", sans-serif !important;
 }
 

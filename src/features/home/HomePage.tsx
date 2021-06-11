@@ -2,8 +2,9 @@ import React, { useEffect, useRef, useState } from 'react';
 import { observer } from 'mobx-react-lite';
 import { Power1, TimelineMax, TweenMax } from "gsap";
 import { useStore } from '../../app/stores/store';
+import { clear } from 'console';
 
-export default observer(function HomePage() {
+export default function HomePage() {
   const { commonStore, videoStore } = useStore();
 
   let firstScene: any;
@@ -341,17 +342,21 @@ export default observer(function HomePage() {
   useEffect(() => {
     let chatBotTxtTimer = setTimeout(() => setShowChatBotTxt(true), delay * 5);
     roadMapVdoSrc.current = commonStore.getRoadmapVdo;
+    if (!commonStore.getRoadmapVdo) {
+      roadMapVdoSrc.current = 'assets/video/fresh-background.mp4'
+    }
     const clearTime = setInterval(() => {
       if (commonStore.getRoadmapVdo) {
         roadMapVdoSrc.current = commonStore.getRoadmapVdo;
         console.log('got the url: ', commonStore.getRoadmapVdo);
+        clearTimeout(clearTime)
       }
-    }, 10000);
+    }, 5000);
     // roadMapVdoSrc.current = commonStore.getRoadmapVdo;
 
     return () => {
       clearTimeout(chatBotTxtTimer);
-      clearTimeout(clearTime);
+      // clearTimeout(clearTime);
     };
   }, [commonStore, videoStore]);
 
@@ -374,7 +379,9 @@ export default observer(function HomePage() {
     } else {
       pauseFirstIntroVideo();
       firstIntroVdoWrap.style.transform = 'translateX(' + -100 + '%)';
-      setTimeout(() => roadMapSec.classList.add('open'), 2000)
+      setTimeout(() => {
+        roadMapSec.classList.add('open');
+      }, 2000)
     }
   }
 
@@ -395,7 +402,7 @@ export default observer(function HomePage() {
     }
     if (e.deltaY / 100 < 0) {
       if (roadmapvideoTime) {
-        roadmapvideoTime = roadmapvideoTime - .3;
+        roadmapvideoTime = roadmapvideoTime - .1;
         if (roadmapvideoTime < 0) {
           roadmapvideoTime = 0;
         }
@@ -406,7 +413,7 @@ export default observer(function HomePage() {
         playRoadMapVideo();
       }
     } else {
-      roadmapvideoTime = roadmapvideoTime + .3;
+      roadmapvideoTime = roadmapvideoTime + .1;
       pauseFirstIntroVideo();
     }
 
@@ -874,11 +881,11 @@ export default observer(function HomePage() {
         <section id='firstScene' className='panel initail-top-section-content' ref={getFirstScene} onWheel={(e) => onWheelFirstScene(e)}>
           <h1>Welcome</h1>
           <div ref={getOurChatBotRef} className='chat-bot-txt'>
-            <h3 className={`chat-bot-h3 animate__animated animate__fadeIn ${showChatBotTxt ? 'showAri' : 'hideAri'}`}>Our Chat Bot is available to assist you in</h3>
-            <h3 className={`chat-bot-h3 animate__animated animate__fadeIn ${showChatBotTxt ? 'showAri' : 'hideAri'}`}>answering any questions you may have</h3>
-            <h3 className={`chat-bot-h3 animate__animated animate__fadeIn ${showChatBotTxt ? 'showAri' : 'hideAri'}`}>during this interactive experience.</h3>
+            <h3 className={`chat-bot-h3 ${showChatBotTxt ? 'showAri' : 'hideAri'}`}>Our Chat Bot is available to assist you in</h3>
+            <h3 className={`chat-bot-h3 ${showChatBotTxt ? 'showAri' : 'hideAri'}`}>answering any questions you may have</h3>
+            <h3 className={`chat-bot-h3 ${showChatBotTxt ? 'showAri' : 'hideAri'}`}>during this interactive experience.</h3>
           </div>
-          <span id='firstIntroDown' className={`mouse-move-down animate__animated animate__fadeIn ${!showChatBotTxt ? 'showAri' : 'hideAri'}`} style={{ marginTop: '3%' }}>
+          <span id='firstIntroDown' className={`mouse-move-down ${!showChatBotTxt ? 'showAri' : 'hideAri'}`} style={{ marginTop: '3%' }}>
             <span className='move-down'></span>
           </span>
         </section>
@@ -892,7 +899,11 @@ export default observer(function HomePage() {
         <section id='roadmapSec' ref={getRoadMapSec} className='panel roadmap-sec' onWheel={(e) => onWheelRoadmapSec(e)}>
           <div className='roadmap-sec-video-box' id='roadMapVdoWrap'>
             <video id='roadMapVideo' ref={getRoadMapVideo} muted={muted} src={roadMapVdoSrc.current}>
+              {/* {!roadMapVdoSrc.current && (
+                <source src={'assets/video/fresh-background.mp4'} type='video/mp4'></source>
+              )} */}
             </video>
+
             <div className='text-container'>
               <div className='text-box trap-box-1'>
                 <div className='box-cont' ref={getTrapBox1Cont}>
@@ -1071,4 +1082,4 @@ export default observer(function HomePage() {
       </div>
     </div>
   )
-})
+}

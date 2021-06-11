@@ -138,7 +138,7 @@ table {
 }
 
 body {
-    font-family: 'Roboto', sans-serif !important;
+    font-family: "Montserrat", sans-serif;
     font-weight: 400;
     margin: 0;
     padding: 0;
@@ -188,6 +188,14 @@ a:hover {
 
 *{
     cursor: none !important;
+}
+
+h1, h2, h3, h4, h5 {
+    font-family: "Montserrat", sans-serif;
+    line-height: 1.28571429em;
+    margin: calc(2rem - .14285714em) 0 1rem;
+    font-weight: 700;
+    padding: 0;
 }
 
 /*Top Section*/
@@ -575,7 +583,7 @@ a:hover {
     left: 0; 
     transition: all .5s;
     width: 55%;
-    height: 115px;
+    height: 165px;
     overflow: hidden;
 }
 .text-box.trap-box-1 .box-cont {
@@ -903,6 +911,7 @@ a:hover {
     to{border-right-color: transparent;}
 }
 
+/* 
 .visible {
     visibility: visible!important;
 }
@@ -1057,4 +1066,4 @@ a:hover {
 
 .ui.inverted.dimmer .ui.loader:after {
     border-color: #767676 transparent transparent;
-}
+} */
