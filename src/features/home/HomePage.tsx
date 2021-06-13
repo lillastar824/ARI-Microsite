@@ -92,6 +92,7 @@ export default function HomePage() {
   let introVideoTime: number = 0;
   let roadmapvideoTime: number = 0;
   let roadMapVdoSrc = useRef('');
+  let outro1VdoSrc = useRef('');
   const tlS = new TimelineMax();
   const delay = 1000;
   const [muted, setMuted] = useState(false);
@@ -343,21 +344,10 @@ export default function HomePage() {
     $smallBall = elem
   }
 
-
   useEffect(() => {
     let chatBotTxtTimer = setTimeout(() => setShowChatBotTxt(true), delay * 5);
     roadMapVdoSrc.current = commonStore.getRoadmapVdo;
-    // if (!commonStore.getRoadmapVdo) {
-    //   roadMapVdoSrc.current = 'assets/video/fresh-background.mp4'
-    // }
-    // const clearTime = setInterval(() => {
-    //   if (commonStore.getRoadmapVdo) {
-    //     roadMapVdoSrc.current = commonStore.getRoadmapVdo;
-    //     console.log('got the url: ', commonStore.getRoadmapVdo);
-    //     clearTimeout(clearTime)
-    //   }
-    // }, 5000);
-    // roadMapVdoSrc.current = commonStore.getRoadmapVdo;
+    outro1VdoSrc.current = commonStore.getOutro1Vdo;
 
     return () => {
       clearTimeout(chatBotTxtTimer);
@@ -425,7 +415,7 @@ export default function HomePage() {
     }
     if (e.deltaY / 100 < 0) {
       if (roadmapvideoTime) {
-        roadmapvideoTime = roadmapvideoTime - .1;
+        roadmapvideoTime = roadmapvideoTime - .3;
         if (roadmapvideoTime < 0) {
           roadmapvideoTime = 0;
         }
@@ -436,7 +426,7 @@ export default function HomePage() {
         playRoadMapVideo();
       }
     } else {
-      roadmapvideoTime = roadmapvideoTime + .1;
+      roadmapvideoTime = roadmapvideoTime + .3;
       pauseFirstIntroVideo();
     }
 
@@ -927,8 +917,8 @@ export default function HomePage() {
         </section>
         <section ref={getFirstIntro} id='firstIntro' className='panel first-intro' onWheel={(e) => onWheelFirstIntro(e)} onClick={(e) => onClickFirstIntro(e)}>
           <div className='first-intro-video-box' ref={getFirstIntroVdoWrap}>
-            <video ref={getFirstIntroVideo} id='firstIntroVideo' preload='auto' muted={muted}>
-              <source src='https://s3.amazonaws.com/stream.arifleet.com/supplychain_2021/TRAP%201_BUDGET%20UNCERTAINTY%20Outro1.mp4' type='video/mp4' />
+            <video ref={getFirstIntroVideo} id='firstIntroVideo' preload='auto' muted={muted} src={outro1VdoSrc.current} >
+              {/* <source type='video/mp4' /> */}
             </video>
           </div>
         </section>

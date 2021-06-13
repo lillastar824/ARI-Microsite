@@ -1,20 +1,13 @@
 import React from 'react';
-import { useStore } from '../stores/store';
 import './CircleCompleteLoader.css'
-
 interface Props {
     active: boolean;
     content?: string;
 }
 
 export default function CircleCompleteLoader({ active = true, content = 'Loading...' }: Props) {
-    const { commonStore } = useStore();
-    const gestureEvent = () => {
-        console.log('loading');
-        commonStore.setAppLoaded();
-    }
     return (
-        <div className={`circle-complete ${active ? 'active' : ''}`} onClick={() => gestureEvent()}>
+        <div className={`circle-complete ${active ? 'active' : ''}`}>
             <div className='loader-wrap'>
                 <svg className="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
                     <circle className="circle-chart__background" stroke="#efefef" strokeWidth="2" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431" />

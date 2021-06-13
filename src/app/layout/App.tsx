@@ -22,6 +22,7 @@ function App() {
               return v.blob()
             }).then((vdo: Blob) => {
               let record = {
+                id: 1,
                 mp4: vdo,
                 name: 'fresh-background'
               }
@@ -31,10 +32,33 @@ function App() {
               const blobUrl = URL.createObjectURL(vdo);
               commonStore.setRoadmapVdo(blobUrl);
               // roadMapVdoSrc.current = blobUrl;
-              setTimeout(() => commonStore.setAppLoaded(), 6000);
+              setTimeout(() => commonStore.setAppLoaded(), 7000);
             });
         }
       }).catch(e => console.log(e));
+
+      await videoStore.getValue('roadMaps', 2).then(v => {
+        if (!v) {
+          fetch('assets/video/outro1.mp4')
+            .then(v => {
+              return v.blob()
+            }).then((vdo: Blob) => {
+              let record = {
+                id: 2,
+                mp4: vdo,
+                name: 'outro1'
+              }
+              // Add the record to the IDB using add()
+              videoStore.putValue('roadMaps', record);
+              // const blob = new Blob([vdo], { type: 'video/mp4' });
+              const blobUrl = URL.createObjectURL(vdo);
+              commonStore.setOutro1Vdo(blobUrl);
+              // roadMapVdoSrc.current = blobUrl;
+              // setTimeout(() => commonStore.setAppLoaded(), 7000);
+            });
+        }
+      }).catch(e => console.log(e));
+
     }
     runIndexDb();
     // if (commonStore.getRoadmapVdo) {

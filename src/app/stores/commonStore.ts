@@ -4,6 +4,7 @@ import { ServerError } from "../models/serverError";
 export default class CommonStore {
     error: ServerError | null = null;
     getRoadmapVdo: string = '';
+    getOutro1Vdo: string = '';
     appLoaded = false;
 
     constructor() {
@@ -23,5 +24,9 @@ export default class CommonStore {
 
     setRoadmapVdo = (blobUrl: string) => {
         this.getRoadmapVdo = blobUrl;
+    }
+
+    setOutro1Vdo = (blobUrl: string) => {
+        this.getOutro1Vdo = blobUrl;
     }
 }
