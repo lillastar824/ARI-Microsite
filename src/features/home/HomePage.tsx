@@ -344,26 +344,26 @@ export default function HomePage() {
   }
 
 
-  // useEffect(() => {
-  //   let chatBotTxtTimer = setTimeout(() => setShowChatBotTxt(true), delay * 5);
-  //   roadMapVdoSrc.current = commonStore.getRoadmapVdo;
-  //   if (!commonStore.getRoadmapVdo) {
-  //     roadMapVdoSrc.current = 'assets/video/fresh-background.mp4'
-  //   }
-  //   const clearTime = setInterval(() => {
-  //     if (commonStore.getRoadmapVdo) {
-  //       roadMapVdoSrc.current = commonStore.getRoadmapVdo;
-  //       console.log('got the url: ', commonStore.getRoadmapVdo);
-  //       clearTimeout(clearTime)
-  //     }
-  //   }, 5000);
-  //   // roadMapVdoSrc.current = commonStore.getRoadmapVdo;
+  useEffect(() => {
+    let chatBotTxtTimer = setTimeout(() => setShowChatBotTxt(true), delay * 5);
+    roadMapVdoSrc.current = commonStore.getRoadmapVdo;
+    // if (!commonStore.getRoadmapVdo) {
+    //   roadMapVdoSrc.current = 'assets/video/fresh-background.mp4'
+    // }
+    // const clearTime = setInterval(() => {
+    //   if (commonStore.getRoadmapVdo) {
+    //     roadMapVdoSrc.current = commonStore.getRoadmapVdo;
+    //     console.log('got the url: ', commonStore.getRoadmapVdo);
+    //     clearTimeout(clearTime)
+    //   }
+    // }, 5000);
+    // roadMapVdoSrc.current = commonStore.getRoadmapVdo;
 
-  //   return () => {
-  //     clearTimeout(chatBotTxtTimer);
-  //     // clearTimeout(clearTime);
-  //   };
-  // }, [commonStore, videoStore]);
+    return () => {
+      clearTimeout(chatBotTxtTimer);
+      // clearTimeout(clearTime);
+    };
+  }, [commonStore, videoStore]);
 
   const onWheelFirstScene = (e: any) => {
     console.log(e.deltaY)
@@ -934,7 +934,7 @@ export default function HomePage() {
         </section>
         <section id='roadmapSec' ref={getRoadMapSec} className='panel roadmap-sec' onWheel={(e) => onWheelRoadmapSec(e)}>
           <div className='roadmap-sec-video-box' id='roadMapVdoWrap'>
-            <video id='roadMapVideo' ref={getRoadMapVideo} muted={muted} src={'assets/video/fresh-background.mp4'} height="calc(100vh)">
+            <video id='roadMapVideo' ref={getRoadMapVideo} muted={muted} src={roadMapVdoSrc.current} height="calc(100vh)">
               {/* {!roadMapVdoSrc.current && (
                 <source src={'assets/video/fresh-background.mp4'} type='video/mp4'></source>
               )} */}

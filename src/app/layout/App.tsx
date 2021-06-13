@@ -5,26 +5,18 @@ import { Route, Switch } from 'react-router-dom';
 import NotFound from '../../features/errors/NotFound';
 import ServerError from '../../features/errors/ServerError';
 import { useStore } from '../stores/store';
-import LoadingComponent from './LoadingComponent';
 import HomePage from '../../features/home/HomePage';
+import CircleCompleteLoader from './CircleCompleteLoader';
 
 function App() {
   const { commonStore, videoStore } = useStore();
 
   useEffect(() => {
-
+    commonStore.setAppNotLoaded();
     const runIndexDb = async () => {
-      // if(commonStore.appLoaded)
-      commonStore.setAppLoaded();
-
       await videoStore.createObjectStore(['roadMaps']);
       await videoStore.getValue('roadMaps', 1).then(v => {
-        if (v) {
-          const blob = new Blob([v.mp4], { type: 'video/mp4' });
-          const blobUrl = URL.createObjectURL(blob);
-          commonStore.setRoadmapVdo(blobUrl);
-          commonStore.setAppLoaded();
-        } else {
+        if (!v) {
           fetch('assets/video/fresh-background.mp4')
             .then(v => {
               return v.blob()
@@ -39,7 +31,7 @@ function App() {
               const blobUrl = URL.createObjectURL(vdo);
               commonStore.setRoadmapVdo(blobUrl);
               // roadMapVdoSrc.current = blobUrl;
-              // commonStore.setAppLoaded();
+              setTimeout(() => commonStore.setAppLoaded(), 6000);
             });
         }
       }).catch(e => console.log(e));
@@ -50,7 +42,7 @@ function App() {
     // }
   }, [commonStore, videoStore])
 
-  if (!commonStore.appLoaded) return <LoadingComponent content='Loading app...' />
+  if (!commonStore.appLoaded) return <CircleCompleteLoader active={true} content='Loading...' />
 
   return (
     <>
