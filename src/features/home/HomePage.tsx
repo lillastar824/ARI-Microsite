@@ -66,6 +66,7 @@ export default function HomePage() {
   let trapBox15TypingRef: any;
   let trapBox16TypingRef: any;
   let trapBox1Cont: any;
+  let trapBox1Ref: any;
   let trapBox2Cont: any;
   let trapBox3Cont: any;
   let trapBox4Cont: any;
@@ -178,6 +179,9 @@ export default function HomePage() {
   }
   const getTrapBox1Cont = (elem: any) => {
     trapBox1Cont = elem
+  }
+  const getTrapBox1Ref = (elem: any) => {
+    trapBox1Ref = elem
   }
   const getTrapBox1TypingRef = (elem: any) => {
     trapBox1TypingRef = elem
@@ -391,7 +395,7 @@ export default function HomePage() {
         // if (introVideoTime >= 100) {
         setTimeout(() => {
           roadMapSec.classList.add('open');
-        }, 2000)
+        }, 1500)
         // }
       }
     }
@@ -442,68 +446,74 @@ export default function HomePage() {
     roadMapSubVideoOpenButtons(roadMapVideo.currentTime);
 
     console.log(roadMapVideo.currentTime);
-    trapBox1Cont.style.transform = 'translateX(' + (200 - roadMapVideo.currentTime * 40) + '%)';
-    // if (roadMapVideo.currentTime > 3.5) {
-    trapBox1TypingRef.classList.remove('hideAri');
-    // }
+    if (roadMapVideo.currentTime > 0) {
+      trapBox1Ref.classList.remove('hideAri');
+      trapBox1TypingRef.classList.remove('hideAri');
+      if (roadMapVideo.currentTime > 1) {
+        trapBox1Cont.style.transform = 'translateX(' + (-roadMapVideo.currentTime * 40) + '%)';
+      }
+    }
 
-    if (roadMapVideo.currentTime > 4) {
+    if (roadMapVideo.currentTime > 5) {
       trapBox2.classList.add('show')
-      trapBox2Cont.style.transform = 'translateX(' + (200 - roadMapVideo.currentTime * 40) + '%)';
-      // if (roadMapVideo.currentTime > 6) {
       trapBox2TypingRef.classList.remove('hideAri');
-      // }
+      if (roadMapVideo.currentTime > 6) {
+        trapBox2Cont.style.transform = 'translateX(' + (150 - roadMapVideo.currentTime * 50) + '%)';
+      }
     } else {
       trapBox2.classList.remove('show')
     }
 
-    if (roadMapVideo.currentTime > 5) {
+    if (roadMapVideo.currentTime > 9) {
       trapBox3.classList.add('show')
-      trapBox3Cont.style.transform = 'translateX(' + (200 - roadMapVideo.currentTime * 35) + '%)';
-      // if (roadMapVideo.currentTime > 6.5) {
       trapBox3TypingRef.classList.remove('hideAri');
-      // }
+      if (roadMapVideo.currentTime > 10) {
+        trapBox3Cont.style.transform = 'translateX(' + (280 - roadMapVideo.currentTime * 40) + '%)';
+      }
     } else {
       trapBox3.classList.remove('show')
     }
 
-    if (roadMapVideo.currentTime > 10) {
+    if (roadMapVideo.currentTime > 15) {
       trapBox4.classList.add('show')
-      trapBox4Cont.style.transform = 'translateX(' + (200 - roadMapVideo.currentTime * 40) + '%)';
-      // if (roadMapVideo.currentTime > 11) {
       trapBox4TypingRef.classList.remove('hideAri');
-      // }
+      if (roadMapVideo.currentTime > 16) {
+        trapBox4Cont.style.transform = 'translateX(' + (500 - roadMapVideo.currentTime * 40) + '%)';
+      }
     } else {
       trapBox4.classList.remove('show')
     }
-    if (roadMapVideo.currentTime > 15) {
+
+    if (roadMapVideo.currentTime > 20) {
       trapBox5.classList.add('show')
-      trapBox5Cont.style.transform = 'translateX(' + (200 - roadMapVideo.currentTime * 35) + '%)';
-      // if (roadMapVideo.currentTime > 16) {
       trapBox5TypingRef.classList.remove('hideAri');
-      // }
+      if (roadMapVideo.currentTime > 22) {
+        trapBox5Cont.style.transform = 'translateX(' + (800 - roadMapVideo.currentTime * 40) + '%)';
+      }
     } else {
       trapBox5.classList.remove('show')
     }
-    if (roadMapVideo.currentTime > 20) {
+    if (roadMapVideo.currentTime > 25) {
       trapBox6.classList.add('show')
-      trapBox6Cont.style.transform = 'translateX(' + (200 - roadMapVideo.currentTime * 30) + '%)';
-      // if (roadMapVideo.currentTime > 21) {
       trapBox6TypingRef.classList.remove('hideAri');
-      setTimeout(() => trapBox4TypingRef.classList.remove('hideAri'), 600);
-      // }
+      trapBox4TypingRef.classList.remove('hideAri');
+      if (roadMapVideo.currentTime > 27) {
+        trapBox6Cont.style.transform = 'translateX(' + (1000 - roadMapVideo.currentTime * 40) + '%)';
+      }
     } else {
       trapBox6.classList.remove('show')
     }
-    if (roadMapVideo.currentTime > 25) {
+    if (roadMapVideo.currentTime > 30) {
       trapBox7.classList.add('show')
-      trapBox7Cont.style.transform = 'translateX(' + (200 - roadMapVideo.currentTime * 35) + '%)';
-      setTimeout(() => trapBox7Cont.classList.remove('hideAri'), 40);
+      trapBox7Cont.classList.remove('hideAri');
+      if (roadMapVideo.currentTime > 32) {
+        trapBox7Cont.style.transform = 'translateX(' + (1200 - roadMapVideo.currentTime * 40) + '%)';
+      }
     } else {
       trapBox7.classList.remove('show')
     }
 
-    if (roadMapVideo.currentTime > 30) {
+    if (roadMapVideo.currentTime > 34) {
       roadMapSec.classList.add('test-class');
       if (!roadMapSec.classList.contains('opened-outro-video1')) {
         openOutroVideo1();
@@ -514,37 +524,37 @@ export default function HomePage() {
 
     if (roadMapVideo.currentTime > 35) {
       trapBox8.classList.add('show')
-      trapBox8Cont.style.transform = 'translateX(' + (200 - roadMapVideo.currentTime * 35) + '%)';
-
-      setTimeout(() => trapBox8TypingRef.classList.remove('hideAri'), 600);
+      trapBox8Cont.style.transform = 'translateX(' + (1400 - roadMapVideo.currentTime * 40) + '%)';
+      if (roadMapVideo.currentTime > 35.5) {
+        trapBox8TypingRef.classList.remove('hideAri');
+      }
     } else {
       trapBox8.classList.remove('show')
     }
+
     if (roadMapVideo.currentTime > 58 && roadMapVideo.currentTime <= 62) {
       trapBox9.classList.add('show')
-
-      setTimeout(() => trapBox9TypingRef.classList.remove('hideAri'), 600);
+      trapBox9TypingRef.classList.remove('hideAri');
     } else {
       trapBox9.classList.remove('show')
     }
+
     if (roadMapVideo.currentTime > 62 && roadMapVideo.currentTime <= 65) {
       trapBox10.classList.add('show')
-
-      setTimeout(() => trapBox10TypingRef.classList.remove('hideAri'), 600);
+      trapBox10TypingRef.classList.remove('hideAri');
     } else {
       trapBox10.classList.remove('show')
     }
+
     if (roadMapVideo.currentTime > 65 && roadMapVideo.currentTime <= 68) {
       trapBox11.classList.add('show')
-
-      setTimeout(() => trapBox11TypingRef.classList.remove('hideAri'), 600);
+      trapBox11TypingRef.classList.remove('hideAri');
     } else {
       trapBox11.classList.remove('show')
     }
     if (roadMapVideo.currentTime > 68 && roadMapVideo.currentTime < 72) {
       trapBox12.classList.add('show')
-
-      setTimeout(() => trapBox12TypingRef.classList.remove('hideAri'), 600);
+      trapBox12TypingRef.classList.remove('hideAri');
     } else {
       trapBox12.classList.remove('show')
     }
@@ -558,39 +568,50 @@ export default function HomePage() {
 
     if (roadMapVideo.currentTime > 73) {
       trapBox13.classList.add('show')
-      trapBox13Cont.style.transform = 'translateX(' + (400 - roadMapVideo.currentTime * 3) + '%)';
-      setTimeout(() => trapBox13TypingRef.classList.remove('hideAri'), 600);
+      trapBox13TypingRef.classList.remove('hideAri');
+      if (roadMapVideo.currentTime > 74) {
+        trapBox13Cont.style.transform = 'translateX(' + (300 - roadMapVideo.currentTime * 5) + '%)';
+      }
     } else {
       trapBox13.classList.remove('show')
     }
 
-    if (roadMapVideo.currentTime > 76) {
-      trapBox13Cont.style.transform = 'translateX(' + (350 - roadMapVideo.currentTime * 6) + '%)';
+    if (roadMapVideo.currentTime > 78) {
+      trapBox13Cont.style.transform = 'translateX(' + (300 - roadMapVideo.currentTime * 10) + '%)';
       trapBox14.classList.add('show')
-      trapBox14Cont.style.transform = 'translateX(' + (770 - roadMapVideo.currentTime * 10) + '%)';
-      setTimeout(() => trapBox14TypingRef.classList.remove('hideAri'), 600);
+      trapBox14TypingRef.classList.remove('hideAri');
+      if (roadMapVideo.currentTime > 78.5 && roadMapVideo.currentTime <= 83) {
+        trapBox14Cont.style.transform = 'translateX(' + (700 - roadMapVideo.currentTime * 10) + '%)';
+      }
+      if (roadMapVideo.currentTime > 83) {
+        trapBox14Cont.style.transform = 'translateX(' + (700 - roadMapVideo.currentTime * 12) + '%)';
+      }
     } else {
       trapBox14.classList.remove('show')
     }
 
-    if (roadMapVideo.currentTime > 79) {
-      trapBox14Cont.style.transform = 'translateX(' + (500 - roadMapVideo.currentTime * 10) + '%)';
+    if (roadMapVideo.currentTime > 88) {
+      trapBox14Cont.style.transform = 'translateX(' + (700 - roadMapVideo.currentTime * 15) + '%)';
       trapBox15.classList.add('show')
-      trapBox15Cont.style.transform = 'translateX(' + (490 - roadMapVideo.currentTime * 3) + '%)';
-      setTimeout(() => trapBox15TypingRef.classList.remove('hideAri'), 600);
+      trapBox15TypingRef.classList.remove('hideAri');
+      if (roadMapVideo.currentTime > 88.5) {
+        trapBox15Cont.style.transform = 'translateX(' + (700 - roadMapVideo.currentTime * 9) + '%)';
+      }
     } else {
       trapBox15.classList.remove('show')
     }
 
-    if (roadMapVideo.currentTime > 80) {
-      trapBox15Cont.style.transform = 'translateX(' + (490 - roadMapVideo.currentTime * 10) + '%)';
+    if (roadMapVideo.currentTime > 94) {
+      trapBox15Cont.style.transform = 'translateX(' + (800 - roadMapVideo.currentTime * 12) + '%)';
       trapBox16.classList.add('show')
-      trapBox16Cont.style.transform = 'translateX(' + (200 - roadMapVideo.currentTime * 6) + '%)';
-      setTimeout(() => trapBox16TypingRef.classList.remove('hideAri'), 600);
+      trapBox16TypingRef.classList.remove('hideAri');
+      if (roadMapVideo.currentTime > 94.5) {
+        trapBox16Cont.style.transform = 'translateX(' + (800 - roadMapVideo.currentTime * 10) + '%)';
+      }
     } else {
       trapBox16.classList.remove('show')
     }
-    if (roadMapVideo.currentTime > 83) {
+    if (roadMapVideo.currentTime >= 99.5) {
       if (!roadMapSec.classList.contains('opened-outro-video4')) {
         openOutroVideo4();
         roadMapSec.classList.add('opened-outro-video4')
@@ -668,32 +689,28 @@ export default function HomePage() {
   }
 
   const roadMap1Click = (e: any) => {
-    console.log(e)
     jumpToRoadMap(0);
   };
 
   const roadMap2Click = (e: any) => {
-    console.log(e)
     jumpToRoadMap(30);
   };
 
   const roadMap3Click = (e: any) => {
-    console.log(e)
-    jumpToRoadMap(54);
+    jumpToRoadMap(55);
   };
 
   const roadMap4Click = (e: any) => {
-    console.log(e)
-    jumpToRoadMap(79);
+    jumpToRoadMap(80);
   };
 
   const roadMap5Click = (e: any) => {
-    console.log(e)
     jumpToRoadMap(99.8);
   };
 
   const onClickSpeakerButton = (e: any) => {
-    setMuted(!muted)
+    const newMuteStatus = !muted;
+    setMuted(newMuteStatus)
   };
 
   const onClickFirstIntro = (e: any) => {
@@ -926,7 +943,7 @@ export default function HomePage() {
             <div className='text-container'>
               <div className='text-box trap-box-1'>
                 <div className='box-cont' ref={getTrapBox1Cont}>
-                  <h3 className='trap-title'>Trap 1</h3>
+                  <h3 className='trap-title animate__animated animate__zoomIn hideAri' ref={getTrapBox1Ref}>Trap 1</h3>
                   <h2 className='typing-animate typing-animate-start hideAri' ref={getTrapBox1TypingRef}>Budget Uncertainty</h2>
                 </div>
               </div>
