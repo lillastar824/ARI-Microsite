@@ -2,7 +2,6 @@ import React, { useEffect, useRef, useState } from 'react';
 import { observer } from 'mobx-react-lite';
 import { Power1, TimelineMax, TweenMax } from "gsap";
 import { useStore } from '../../app/stores/store';
-import { clear } from 'console';
 
 export default function HomePage() {
   const { commonStore, videoStore } = useStore();
@@ -346,14 +345,14 @@ export default function HomePage() {
 
   useEffect(() => {
     let chatBotTxtTimer = setTimeout(() => setShowChatBotTxt(true), delay * 5);
-    roadMapVdoSrc.current = commonStore.getRoadmapVdo;
-    outro1VdoSrc.current = commonStore.getOutro1Vdo;
+    // roadMapVdoSrc.current = commonStore.getRoadmapVdo;
+    // outro1VdoSrc.current = commonStore.getOutro1Vdo;
 
     return () => {
       clearTimeout(chatBotTxtTimer);
       // clearTimeout(clearTime);
     };
-  }, [commonStore, videoStore]);
+  }, []);
 
   const onWheelFirstScene = (e: any) => {
     console.log(e.deltaY)
@@ -917,14 +916,14 @@ export default function HomePage() {
         </section>
         <section ref={getFirstIntro} id='firstIntro' className='panel first-intro' onWheel={(e) => onWheelFirstIntro(e)} onClick={(e) => onClickFirstIntro(e)}>
           <div className='first-intro-video-box' ref={getFirstIntroVdoWrap}>
-            <video ref={getFirstIntroVideo} id='firstIntroVideo' preload='auto' muted={muted} src={outro1VdoSrc.current} >
+            <video ref={getFirstIntroVideo} id='firstIntroVideo' preload='auto' muted={muted} src={'assets/video/outro1.mp4'} >
               {/* <source type='video/mp4' /> */}
             </video>
           </div>
         </section>
         <section id='roadmapSec' ref={getRoadMapSec} className='panel roadmap-sec' onWheel={(e) => onWheelRoadmapSec(e)}>
           <div className='roadmap-sec-video-box' id='roadMapVdoWrap'>
-            <video id='roadMapVideo' ref={getRoadMapVideo} muted={muted} src={roadMapVdoSrc.current} height="calc(100vh)">
+            <video id='roadMapVideo' ref={getRoadMapVideo} muted={muted} src={'assets/video/fresh-background.mp4'} height="calc(100vh)">
               {/* {!roadMapVdoSrc.current && (
                 <source src={'assets/video/fresh-background.mp4'} type='video/mp4'></source>
               )} */}
