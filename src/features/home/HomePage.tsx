@@ -44,6 +44,7 @@ export default function HomePage() {
   let trapBox4TypingRef: any;
   let trapBox5TypingRef: any;
   let trapBox6TypingRef: any;
+  let trapBox2Ref: any;
   let trapBox8TypingRef: any;
   let trapBox9TypingRef: any;
   let trapBox10TypingRef: any;
@@ -175,6 +176,9 @@ export default function HomePage() {
     trapBox6TypingRef = elem
   }
 
+  const getTrapBox2Ref = (elem: any) => {
+    trapBox2Ref = elem
+  }
   const getTrapBox8TypingRef = (elem: any) => {
     trapBox8TypingRef = elem
   }
@@ -444,14 +448,14 @@ export default function HomePage() {
     } else {
       trapBox6.classList.remove('show')
     }
-    if (roadMapVideo.currentTime > 30) {
+    if (roadMapVideo.currentTime > 30 && !roadMapSec.classList.contains('opened-outro-video1')) {
       trapBox7.classList.add('show')
       trapBox7Cont.classList.remove('hideAri');
       if (roadMapVideo.currentTime > 32) {
         trapBox7Cont.style.transform = 'translateX(' + (1200 - roadMapVideo.currentTime * 40) + '%)';
       }
     } else {
-      trapBox7.classList.remove('show')
+      setTimeout(() => trapBox7.classList.remove('show'), 2000)
     }
 
     if (roadMapVideo.currentTime > 34) {
@@ -459,15 +463,10 @@ export default function HomePage() {
         openOutroVideo1();
         roadMapSec.classList.add('opened-outro-video1')
       }
+      trapBox8Cont.style.transform = 'translateX(' + (1300 - roadMapVideo.currentTime * 40) + '%)';
     }
 
-    if (roadMapVideo.currentTime > 35) {
-      trapBox8.classList.add('show')
-      trapBox8Cont.style.transform = 'translateX(' + (1400 - roadMapVideo.currentTime * 40) + '%)';
-      if (roadMapVideo.currentTime > 35.5) {
-        trapBox8TypingRef.classList.remove('hideAri');
-      }
-    } else {
+    if (roadMapVideo.currentTime > 38) {
       trapBox8.classList.remove('show')
     }
 
@@ -760,7 +759,13 @@ export default function HomePage() {
   };
   const onMouseWheelOutroVideo1 = (e: any) => {
     outroVideo1Cont.classList.add('active-removed');
+    trapBox7.classList.remove('show')
     outroVideo1.pause();
+    setTimeout(() => {
+      trapBox8.classList.add('show')
+      trapBox2Ref.classList.remove('hideAri');
+      trapBox8TypingRef.classList.remove('hideAri');
+    }, 1000)
   };
   const onMouseWheelOutroVideo3 = (e: any) => {
     outroVideo3Cont.classList.add('active-removed');
@@ -879,7 +884,7 @@ export default function HomePage() {
               </div>
               <div className='text-box trap-box-8' ref={getTrapBox8}>
                 <div className='box-cont' ref={getTrapBox8Cont}>
-                  <h3 className='trap-title'>Trap 2</h3>
+                  <h3 className='trap-title hideAri' ref={getTrapBox2Ref}>Trap 2</h3>
                   <h2 className='typing-animate typing-animate-start hideAri' ref={getTrapBox8TypingRef}>Annual<br />Supply Chain<br />Bidding</h2>
                 </div>
               </div>
@@ -935,50 +940,50 @@ export default function HomePage() {
         <div className='sub-video-container'>
           <div className='sub-video-box sub-video-1-cont' ref={getSubVideo1Cont}>
             <video id='subVideo1' preload='auto' ref={getSubVideo1} onClick={(e) => onClickSubVideo1(e)} onWheel={(e) => onMouseWheelSubVideo1(e)} muted={muted}>
-              <source src='https://s3.amazonaws.com/stream.arifleet.com/supplychain_2021/TRAP%201_BUDGET%20UNCERTAINTY%20SubVideo1.mp4' type='video/mp4' />
+              <source src={'assets/video/sub_video1.mp4'} type='video/mp4' />
             </video>
             <button className='sub-video-close sub-video-1-close' onClick={(e) => onClickSubVideo1Close(e)}>
-              <img src='assets/img/times-solid.svg' alt='' />
+              <img src={'assets/img/times-solid.svg'} alt='' />
             </button>
           </div>
           <div className='sub-video-box sub-video-2-cont' ref={getSubVideo2Cont}>
             <video id='subVideo2' preload='auto' ref={getSubVideo2} onClick={(e) => onClickSubVideo2(e)} onWheel={(e) => onMouseWheelSubVideo2(e)} muted={muted}>
-              <source src='https://s3.amazonaws.com/stream.arifleet.com/supplychain_2021/TRAP%202_ANNUAL%20SUPPLY%20CHAIN%20BIDDING%20SubVideo2.mp4' type='video/mp4' />
+              <source src={'assets/video/sub_video2.mp4'} type='video/mp4' />
             </video>
             <button className='sub-video-close sub-video-2-close' onClick={(e) => onClickSubVideo2Close(e)}>
-              <img src='assets/img/times-solid.svg' alt='' />
+              <img src={'assets/img/times-solid.svg'} alt='' />
             </button>
           </div>
           <div className='sub-video-box sub-video-3-cont' ref={getSubVideo3Cont}>
             <video id='subVideo3' preload='auto' ref={getSubVideo3} onClick={(e) => onClickSubVideo3(e)} onWheel={(e) => onMouseWheelSubVideo3(e)} muted={muted}>
-              <source src='https://s3.amazonaws.com/stream.arifleet.com/supplychain_2021/TRAP%203_UPFIT%20PRICING%20SubVideo3.mp4' type='video/mp4' />
+              <source src={'assets/video/sub_video3.mp4'} type='video/mp4' />
             </video>
             <button className='sub-video-close sub-video-3-close' onClick={(e) => onClickSubVideo3Close(e)}>
-              <img src='assets/img/times-solid.svg' alt='' />
+              <img src={'assets/img/times-solid.svg'} alt='' />
             </button>
           </div>
-          <div className='sub-video-box sub-video-4-cont outro1-video' ref={getOutroVideo1Cont}>
+          <div className='sub-video-box sub-video-4-cont outro2-video' ref={getOutroVideo1Cont}>
             <video id='subVideo4' preload='auto' ref={getOutroVideo1} onClick={(e) => onClickOutroVideo1(e)} onWheel={(e) => onMouseWheelOutroVideo1(e)} muted={muted}>
-              <source src='https://s3.amazonaws.com/stream.arifleet.com/supplychain_2021/TRAP%201_BUDGET%20UNCERTAINTY%20Outro1.mp4' type='video/mp4' />
+              <source src={'assets/video/outro2.mp4'} type='video/mp4' />
             </video>
             <button className='sub-video-close sub-video-4-close' onClick={(e) => onClickOutroVideo1Close(e)}>
-              <img src='assets/img/times-solid.svg' alt='' />
+              <img src={'assets/img/times-solid.svg'} alt='' />
             </button>
           </div>
           <div className='sub-video-box sub-video-5-cont outro3-video' ref={getOutroVideo3Cont}>
             <video id='subVideo5' preload='auto' ref={getOutroVideo3} onClick={(e) => onClickOutroVideo3(e)} onWheel={(e) => onMouseWheelOutroVideo3(e)} muted={muted}>
-              <source src='https://s3.amazonaws.com/stream.arifleet.com/supplychain_2021/TRAP%203_UPFIT%20PRICING%20Outro3.mp4' type='video/mp4' />
+              <source src={'assets/video/outro3.mp4'} type='video/mp4' />
             </video>
             <button className='sub-video-close sub-video-5-close' onClick={(e) => onClickOutroVideo3Close(e)}>
-              <img src='assets/img/times-solid.svg' alt='' />
+              <img src={'assets/img/times-solid.svg'} alt='' />
             </button>
           </div>
           <div className='sub-video-box sub-video-6-cont outro4-video' ref={getOutroVideo4Cont}>
             <video id='subVideo6' preload='auto' ref={getOutroVideo4} onClick={(e) => onClickOutroVideo4(e)} onWheel={(e) => onMouseWheelOutroVideo4(e)} muted={muted}>
-              <source src='https://s3.amazonaws.com/stream.arifleet.com/supplychain_2021/TRAP%204_GETTING%20TANGLED%20IN%20THE%20WEEDS%20Outro4.mp4' type='video/mp4' />
+              <source src={'assets/video/outro4.mp4'} type='video/mp4' />
             </video>
             <button className='sub-video-close sub-video-6-close' onClick={(e) => onClickOutroVideo4Close(e)}>
-              <img src='assets/img/times-solid.svg' alt='' />
+              <img src={'assets/img/times-solid.svg'} alt='' />
             </button>
           </div>
         </div>
