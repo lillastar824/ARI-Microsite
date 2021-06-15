@@ -4,6 +4,7 @@
 */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Yantramanav:wght@100;300;400;500;700;900&display=swap');
 
 html,
 body,
@@ -138,7 +139,7 @@ table {
 }
 
 body {
-    font-family: "Montserrat", sans-serif;
+    font-family: 'Yantramanav', sans-serif;
     font-weight: 400;
     margin: 0;
     padding: 0;
@@ -191,9 +192,8 @@ a:hover {
 }
 
 h1, h2, h3, h4, h5 {
-    font-family: "Montserrat", sans-serif;
-    line-height: 1.28571429em;
-    margin: calc(2rem - .14285714em) 0 1rem;
+    font-family: 'Yantramanav', sans-serif;
+    line-height: 1em;
     font-weight: 700;
     padding: 0;
 }
@@ -257,7 +257,7 @@ h1, h2, h3, h4, h5 {
     height: 100%;
     background: #000000c7;
     z-index: -1;
-    transition: all .3s;
+    transition: all 3s;
 }
 
 
@@ -272,21 +272,22 @@ h1, h2, h3, h4, h5 {
     justify-content: center;
     flex-direction: column;
     background: #000000c7;
-    transition: all 0.5s;
+    transition: all 1s;
 }
 
 .initail-top-section-content.animated {
     top: -100%;
+    opacity: 0;
 }
 
 .initail-top-section-content h1 {
-    font-size: 75px;
+    font-size: 5.5em;
     font-weight: 600;
     color: #fff;
     text-transform: uppercase;
     text-align: center;
     margin-bottom: 20px;
-    transition: all .3s;
+    transition: all 3s;
 }
 
 .first-intro.opened .initail-top-section-content h1 {
@@ -297,12 +298,13 @@ h1, h2, h3, h4, h5 {
 }
 
 .initail-top-section-content h3 {
-    font-size: 36px;
+    font-size: 3em;
     font-weight: normal;
     color: #fff;
     text-align: center;
     margin-bottom: 25px;
-    transition: all .3s;
+    transition: all 3s;
+    line-height: 1em;
 }
 
 .first-intro.opened .initail-top-section-content h3 {
@@ -372,7 +374,7 @@ h1, h2, h3, h4, h5 {
     width: 0;
     position: absolute;
     background: #01b1e5;
-    transition: all 0.3s;
+    transition: all 3s;
 }
 
 .progress-bar-sec ul {
@@ -399,7 +401,7 @@ h1, h2, h3, h4, h5 {
     text-align: center;
     font-weight: bold;
     border-radius: 50%;
-    transition: all .3s;
+    transition: all 3s;
 }
 
 .progress-bar-sec ul>li:last-child a {
@@ -452,7 +454,7 @@ h1, h2, h3, h4, h5 {
     height: 100%;
     width: 100%;
     top: 0;
-    left: 100%;
+    left: 0;
     transition: all 2s;
 }
 
@@ -691,6 +693,11 @@ h1, h2, h3, h4, h5 {
     text-transform: uppercase;
 }
 
+.text-box.trap-box-7 h2 {
+    font-size: 3.2em;
+}
+
+
 .text-box.trap-box-1-1,
 .text-box.trap-box-2 ,
 .text-box.trap-box-3,
@@ -824,7 +831,9 @@ h1, h2, h3, h4, h5 {
 .text-box.trap-box-15 h6,
 .text-box.trap-box-16 h6 {
     color: #fff;
-    font-size: 1.6em;
+    font-size: 2em;
+    line-height: 1em;
+    font-weight: 300;
 }
 
 .text-box.trap-box-1-1 .box-cont,
@@ -850,27 +859,8 @@ h1, h2, h3, h4, h5 {
     line-height: normal;
 }
 
-.text-box.trap-box-1-1 .box-cont,
-.text-box.trap-box-2 .box-cont,
-.text-box.trap-box-3 .box-cont,
-.text-box.trap-box-4 .box-cont,
-.text-box.trap-box-5 .box-cont,
-.text-box.trap-box-6 .box-cont,
-.text-box.trap-box-7 .box-cont,
-.text-box.trap-box-8 .box-cont,
-.text-box.trap-box-9 .box-cont,
-.text-box.trap-box-10 .box-cont,
-.text-box.trap-box-11 .box-cont,
-.text-box.trap-box-12 .box-cont,
-.text-box.trap-box-13 .box-cont,
-.text-box.trap-box-14 .box-cont,
-.text-box.trap-box-15 .box-cont,
-.text-box.trap-box-16 .box-cont{
-    /* transform: translateX(200%); */
-}
-
 .initail-top-section-content > h1 {
-    margin-top: 18%!important;
+    margin-top: 15%!important;
 }
 
 .chat-bot-txt > h3 {
@@ -919,7 +909,7 @@ video {
 
 .transition {
     animation-iteration-count: 1;
-    animation-duration: .3s;
+    animation-duration: 3s;
     animation-timing-function: ease;
     animation-fill-mode: both;
 }

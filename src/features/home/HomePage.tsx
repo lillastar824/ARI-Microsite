@@ -1,21 +1,13 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { observer } from 'mobx-react-lite';
+import React, { useEffect, useState } from 'react';
 import { Power1, TimelineMax, TweenMax } from "gsap";
-import { useStore } from '../../app/stores/store';
 
 export default function HomePage() {
-  const { commonStore, videoStore } = useStore();
-
   let firstScene: any;
-  let ourChatBotRef: any;
-  let jumpHintsRef: any;
   let firstIntro: any;
   let firstIntroVideo: any;
-  let secondIntro: any;
   let firstIntroVdoWrap: any;
   let roadMapSec: any;
   let roadMapVideo: any;
-  let roadMapVideoMp4 = useRef();
   let subVideo1Cont: any;
   let subVideo2Cont: any;
   let subVideo3Cont: any;
@@ -24,14 +16,12 @@ export default function HomePage() {
   let outroVideo4Cont: any;
   let subVideo1Button: any;
   let subVideo2Button: any;
-  let subVideo3Button: any;
   let subVideo1: any;
   let subVideo2: any;
   let subVideo3: any;
   let outroVideo1: any;
   let outroVideo3: any;
   let outroVideo4: any;
-  let roadMapGapImg: any;
   let progressBarLine: any;
   let trapBox2: any;
   let trapBox3: any;
@@ -54,7 +44,6 @@ export default function HomePage() {
   let trapBox4TypingRef: any;
   let trapBox5TypingRef: any;
   let trapBox6TypingRef: any;
-  let trapBox7TypingRef: any;
   let trapBox8TypingRef: any;
   let trapBox9TypingRef: any;
   let trapBox10TypingRef: any;
@@ -73,10 +62,6 @@ export default function HomePage() {
   let trapBox6Cont: any;
   let trapBox7Cont: any;
   let trapBox8Cont: any;
-  let trapBox9Cont: any;
-  let trapBox10Cont: any;
-  let trapBox11Cont: any;
-  let trapBox12Cont: any;
   let trapBox13Cont: any;
   let trapBox14Cont: any;
   let trapBox15Cont: any;
@@ -90,39 +75,29 @@ export default function HomePage() {
   let $smallBall: any;
   let introVideoTime: number = 0;
   let roadmapvideoTime: number = 0;
-  let roadMapVdoSrc = useRef('');
-  let outro1VdoSrc = useRef('');
   const tlS = new TimelineMax();
   const delay = 1000;
-  const [muted, setMuted] = useState(false);
+  const [muted, setMuted] = useState(true);
   const [showChatBotTxt, setShowChatBotTxt] = useState(false);
-  // const [roadMapVdo, setRoadMapVdo] = useState();
-  // const roadMapVideoMp4 = useRef();
 
   const getFirstScene = (elem: any) => {
     firstScene = elem
   }
-  const getOurChatBotRef = (elem: any) => {
-    ourChatBotRef = elem
-  }
-  const getJumpHintsRef = (elem: any) => {
-    jumpHintsRef = elem
-  }
+
   const getFirstIntro = (elem: any) => {
     firstIntro = elem
   }
+
   const getFirstIntroVideo = (elem: any) => {
     firstIntroVideo = elem
   }
-  const getSecondIntro = (elem: any) => {
-    secondIntro = elem
-  }
+
+
   const getFirstIntroVdoWrap = (elem: any) => {
     firstIntroVdoWrap = elem
   }
-  const getRoadMapGapImg = (elem: any) => {
-    roadMapGapImg = elem
-  }
+
+
   const getRoadMapSec = (elem: any) => {
     roadMapSec = elem
   }
@@ -153,9 +128,7 @@ export default function HomePage() {
   const getSubVideo2Button = (elem: any) => {
     subVideo2Button = elem
   }
-  const getSubVideo3Button = (elem: any) => {
-    subVideo3Button = elem
-  }
+
   const getSubVideo1 = (elem: any) => {
     subVideo1 = elem
   }
@@ -201,9 +174,7 @@ export default function HomePage() {
   const getTrapBox6TypingRef = (elem: any) => {
     trapBox6TypingRef = elem
   }
-  const getTrapBox7TypingRef = (elem: any) => {
-    trapBox7TypingRef = elem
-  }
+
   const getTrapBox8TypingRef = (elem: any) => {
     trapBox8TypingRef = elem
   }
@@ -297,18 +268,7 @@ export default function HomePage() {
   const getTrapBox8Cont = (elem: any) => {
     trapBox8Cont = elem
   }
-  const getTrapBox9Cont = (elem: any) => {
-    trapBox9Cont = elem
-  }
-  const getTrapBox10Cont = (elem: any) => {
-    trapBox10Cont = elem
-  }
-  const getTrapBox11Cont = (elem: any) => {
-    trapBox11Cont = elem
-  }
-  const getTrapBox12Cont = (elem: any) => {
-    trapBox12Cont = elem
-  }
+
   const getTrapBox13Cont = (elem: any) => {
     trapBox13Cont = elem
   }
@@ -344,13 +304,9 @@ export default function HomePage() {
   }
 
   useEffect(() => {
-    let chatBotTxtTimer = setTimeout(() => setShowChatBotTxt(true), delay * 5);
-    // roadMapVdoSrc.current = commonStore.getRoadmapVdo;
-    // outro1VdoSrc.current = commonStore.getOutro1Vdo;
-
+    let chatBotTxtTimer = setTimeout(() => setShowChatBotTxt(true), delay * 3);
     return () => {
       clearTimeout(chatBotTxtTimer);
-      // clearTimeout(clearTime);
     };
   }, []);
 
@@ -360,32 +316,28 @@ export default function HomePage() {
       pauseFirstIntroVideo();
       e.target.classList.remove('animated');
     } else {
-      playFirstIntroVideo(true);
+      playFirstIntroVideo();
       e.target.classList.add('animated');
     }
   }
 
   const onWheelFirstIntro = (e: any) => {
-    // roadMapVideo.requestFullscreen()
+    // roadMapVideo.requestFullscreen() BUDGET UNCERTAINTY
     console.log(e.deltaY)
     if (e.deltaY / 100 < 0) {
       pauseFirstIntroVideo();
       if (!(introVideoTime < 1)) {
         introVideoTime = introVideoTime - 5;
         firstIntroVdoWrap.style.transform = 'translateX(' + (-0) + '%)';
-        roadMapVideo.style.transform = 'translateX(' + (-0) + '%)';
       }
     } else {
       pauseFirstIntroVideo();
       if (!(introVideoTime > 99)) {
         introVideoTime = introVideoTime + 5;
         firstIntroVdoWrap.style.transform = 'translateX(' + (-100) + '%)';
-        roadMapVideo.style.transform = 'translateX(' + (-100) + '%)';
-        // if (introVideoTime >= 100) {
         setTimeout(() => {
-          roadMapSec.classList.add('open');
+          roadMapSec && roadMapSec.classList.add('open');
         }, 1500)
-        // }
       }
     }
 
@@ -414,7 +366,7 @@ export default function HomePage() {
     }
     if (e.deltaY / 100 < 0) {
       if (roadmapvideoTime) {
-        roadmapvideoTime = roadmapvideoTime - .3;
+        roadmapvideoTime = roadmapvideoTime - .2;
         if (roadmapvideoTime < 0) {
           roadmapvideoTime = 0;
         }
@@ -425,7 +377,7 @@ export default function HomePage() {
         playRoadMapVideo();
       }
     } else {
-      roadmapvideoTime = roadmapvideoTime + .3;
+      roadmapvideoTime = roadmapvideoTime + .2;
       pauseFirstIntroVideo();
     }
 
@@ -503,11 +455,9 @@ export default function HomePage() {
     }
 
     if (roadMapVideo.currentTime > 34) {
-      roadMapSec.classList.add('test-class');
       if (!roadMapSec.classList.contains('opened-outro-video1')) {
         openOutroVideo1();
         roadMapSec.classList.add('opened-outro-video1')
-        // completeTrap1Box();
       }
     }
 
@@ -606,20 +556,6 @@ export default function HomePage() {
         roadMapSec.classList.add('opened-outro-video4')
       }
     }
-  }
-
-  const firstIntroDownShaderTransition = () => {
-    tlS.clear();
-    tlS.to(".tint", 1, { ease: Power1.easeIn, })
-      .to(".tint", 1.0, { opacity: 0.5, ease: Power1.easeOut, backgroundColor: "#01b1e5", }, "-=1.0")
-      .to(".tint", 1.0, { opacity: 1, ease: Power1.easeOut, backgroundColor: "#fff", })
-      .to(".tint", 1.0, { opacity: 1, ease: Power1.easeOut, backgroundColor: "#fff", })
-      .to(".tint", 1, {
-        ease: Power1.easeIn,
-        onComplete: () => {
-          roadMapSec.classList.add('open');
-        }
-      }, "-=1.75");
   }
 
   const firstIntroTopShaderTransition = () => {
@@ -751,10 +687,6 @@ export default function HomePage() {
     subVideo2Cont.classList.add('active');
     subVideo2.play();
   };
-  const onClickSubVideo3Button = (e: any) => {
-    subVideo3Cont.classList.add('active');
-    subVideo3.play();
-  };
 
   const onClickSubVideo2 = (e: any) => {
     if (subVideo2.paused === false) {
@@ -851,10 +783,7 @@ export default function HomePage() {
     roadMapSubVideoOpenButtons(roadMapVideo.currentTime);
   }
 
-  const playFirstIntroVideo = (muted?: boolean) => {
-    if (muted) {
-      firstIntroVideo.muted = muted;
-    }
+  const playFirstIntroVideo = () => {
     firstIntroVideo.play()
   };
 
@@ -865,11 +794,6 @@ export default function HomePage() {
   const playRoadMapVideo = () => {
     roadMapVideo.play()
   };
-
-  const pauseRoadMapVideo = () => {
-    roadMapVideo.pause()
-  };
-
 
   // Move the cursor
   const onMouseMove = (e: any) => {
@@ -885,30 +809,15 @@ export default function HomePage() {
 
   }
 
-  // Hover an element
-  // const onMouseHover = () => {
-  //   TweenMax.to($bigBall, .3, {
-  //     scale: 4
-  //   });
-
-  // }
-
-  // const onMouseHoverOut = () => {
-  //   TweenMax.to($bigBall, .3, {
-  //     scale: 1
-  //   });
-
-  // }
-
   return (
     <div onMouseMove={(e) => onMouseMove(e)}>
       <main id='pinContainer' className='initail-top-section'>
-        <section id='firstScene' className='panel initail-top-section-content' ref={getFirstScene} onWheel={(e) => onWheelFirstScene(e)}>
+        <section id='firstScene' className={`panel initail-top-section-content`} ref={getFirstScene} onWheel={(e) => onWheelFirstScene(e)}>
           <h1>Welcome</h1>
-          <div ref={getOurChatBotRef} className='chat-bot-txt'>
-            <h3 className={`chat-bot-h3 ${showChatBotTxt ? 'showAri' : 'hideAri'}`}>Our Chat Bot is available to assist you in</h3>
-            <h3 className={`chat-bot-h3 ${showChatBotTxt ? 'showAri' : 'hideAri'}`}>answering any questions you may have</h3>
-            <h3 className={`chat-bot-h3 ${showChatBotTxt ? 'showAri' : 'hideAri'}`}>during this interactive experience.</h3>
+          <div className='chat-bot-txt'>
+            <h3 className={`chat-bot-h3 animate__animated animate__fadeIn ${showChatBotTxt ? 'showAri' : 'hideAri'}`}>Our Chat Bot is available to assist you in</h3>
+            <h3 className={`chat-bot-h3 animate__animated animate__fadeIn ${showChatBotTxt ? 'showAri' : 'hideAri'}`}>answering any questions you may have</h3>
+            <h3 className={`chat-bot-h3 animate__animated animate__fadeIn ${showChatBotTxt ? 'showAri' : 'hideAri'}`}>during this interactive experience.</h3>
           </div>
           <span id='firstIntroDown' className={`mouse-move-down ${!showChatBotTxt ? 'showAri' : 'hideAri'}`} style={{ marginTop: '3%' }}>
             <span className='move-down'></span>
@@ -975,23 +884,23 @@ export default function HomePage() {
                 </div>
               </div>
               <div className='text-box trap-box-9' ref={getTrapBox9}>
-                <div className='box-cont' ref={getTrapBox9Cont}>
+                <div className='box-cont'>
                   <h3 className='trap-title'>Trap 3</h3>
                   <h2 className='typing-animate typing-animate-start hideAri' ref={getTrapBox9TypingRef}>Minimizing<br />Upfit Price</h2>
                 </div>
               </div>
               <div className='text-box trap-box-10' ref={getTrapBox10}>
-                <div className='box-cont' ref={getTrapBox10Cont}>
+                <div className='box-cont'>
                   <h6 className='typing-animate typing-animate-start hideAri' ref={getTrapBox10TypingRef}>All too often, the design and upfit silo is so<br />focused on immediate savings, it tries to<br />minimize the price of upfitting.</h6>
                 </div>
               </div>
               <div className='text-box trap-box-11' ref={getTrapBox11}>
-                <div className='box-cont' ref={getTrapBox11Cont}>
+                <div className='box-cont'>
                   <h6 className='typing-animate typing-animate-start hideAri' ref={getTrapBox11TypingRef}>That's not surprising.<br />Quick savings are easy to see<br />on an annual spreadsheet.</h6>
                 </div>
               </div>
               <div className='text-box trap-box-12' ref={getTrapBox12}>
-                <div className='box-cont' ref={getTrapBox12Cont}>
+                <div className='box-cont'>
                   <h6 className='typing-animate typing-animate-start hideAri' ref={getTrapBox12TypingRef}>But whether you're operating a fleet of vans or<br />sedans, if you are focused on thhe upfit bill, as<br />oposed to your upfit spaces, you will likely end up<br />spending more on the long run.</h6>
                 </div>
               </div>
@@ -1020,7 +929,6 @@ export default function HomePage() {
             <div id='roadMapVideoScrollContainer' className='roadmap-scroll-container'>
               <div className='sub-video-1-button' ref={getSubVideo1Button} onClick={(e) => onClickSubVideo1Button(e)}></div>
               <div className='sub-video-2-button' ref={getSubVideo2Button} onClick={(e) => onClickSubVideo2Button(e)}></div>
-              <div className='sub-video-3-button' ref={getSubVideo3Button} onClick={(e) => onClickSubVideo3Button(e)}></div>
             </div>
           </div>
         </section>
