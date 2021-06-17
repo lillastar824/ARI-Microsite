@@ -3,7 +3,7 @@ body {
 }
 
 body, h1, h2, h3, h5, h6, p, div {
-  font-family: 'Yantramanav', sans-serif !important;
+  font-family: 'Helvetica', 'Yantramanav', sans-serif;
 }
 
 .ui.inverted.top.fixed.menu {

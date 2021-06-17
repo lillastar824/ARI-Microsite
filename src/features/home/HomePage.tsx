@@ -40,20 +40,57 @@ export default function HomePage() {
   let trapBox16: any;
   let trapBox1TypingRef: any;
   let trapBox2TypingRef: any;
+  let trapBox2TypingRef1: any;
+  let trapBox2TypingRef2: any;
+  let trapBox2TypingRef3: any;
   let trapBox3TypingRef: any;
+  let trapBox3TypingRef1: any;
+  let trapBox3TypingRef2: any;
   let trapBox4TypingRef: any;
+  let trapBox4TypingRef1: any;
+  let trapBox4TypingRef2: any;
   let trapBox5TypingRef: any;
+  let trapBox5TypingRef1: any;
+  let trapBox5TypingRef2: any;
+  let trapBox5TypingRef3: any;
+  let trapBox5TypingRef4: any;
+  let trapBox5TypingRef5: any;
+  let trapBox5TypingRef6: any;
   let trapBox6TypingRef: any;
+  let trapBox6TypingRef1: any;
+  let trapBox6TypingRef2: any;
+  let trapBox6TypingRef3: any;
   let trapBox2Ref: any;
   let trapBox8TypingRef: any;
+  let trapBox8TypingRef1: any;
+  let trapBox8TypingRef2: any;
   let trapBox9TypingRef: any;
+  let trapBox9TypingRef1: any;
   let trapBox10TypingRef: any;
+  let trapBox10TypingRef1: any;
+  let trapBox10TypingRef2: any;
   let trapBox11TypingRef: any;
+  let trapBox11TypingRef1: any;
+  let trapBox11TypingRef2: any;
   let trapBox12TypingRef: any;
+  let trapBox12TypingRef1: any;
+  let trapBox12TypingRef2: any;
+  let trapBox12TypingRef3: any;
   let trapBox13TypingRef: any;
+  let trapBox13TypingRef1: any;
   let trapBox14TypingRef: any;
+  let trapBox14TypingRef1: any;
+  let trapBox14TypingRef2: any;
+  let trapBox14TypingRef3: any;
   let trapBox15TypingRef: any;
+  let trapBox15TypingRef1: any;
+  let trapBox15TypingRef2: any;
+  let trapBox15TypingRef3: any;
   let trapBox16TypingRef: any;
+  let trapBox16TypingRef1: any;
+  let trapBox16TypingRef2: any;
+  let trapBox16TypingRef3: any;
+  let trapBox16TypingRef4: any;
   let trapBox1Cont: any;
   let trapBox1Ref: any;
   let trapBox2Cont: any;
@@ -62,6 +99,12 @@ export default function HomePage() {
   let trapBox5Cont: any;
   let trapBox6Cont: any;
   let trapBox7Cont: any;
+  let trapBox7TypingRef: any;
+  let trapBox7TypingRef1: any;
+  let trapBox7TypingRef2: any;
+  let trapBox7TypingRef3: any;
+  let trapBox7TypingRef4: any;
+  let trapBox7TypingRef5: any;
   let trapBox8Cont: any;
   let trapBox13Cont: any;
   let trapBox14Cont: any;
@@ -163,17 +206,66 @@ export default function HomePage() {
   const getTrapBox2TypingRef = (elem: any) => {
     trapBox2TypingRef = elem
   }
+  const getTrapBox2TypingRef1 = (elem: any) => {
+    trapBox2TypingRef1 = elem
+  }
+  const getTrapBox2TypingRef2 = (elem: any) => {
+    trapBox2TypingRef2 = elem
+  }
+  const getTrapBox2TypingRef3 = (elem: any) => {
+    trapBox2TypingRef3 = elem
+  }
   const getTrapBox3TypingRef = (elem: any) => {
     trapBox3TypingRef = elem
+  }
+  const getTrapBox3TypingRef1 = (elem: any) => {
+    trapBox3TypingRef1 = elem
+  }
+  const getTrapBox3TypingRef2 = (elem: any) => {
+    trapBox3TypingRef2 = elem
   }
   const getTrapBox4TypingRef = (elem: any) => {
     trapBox4TypingRef = elem
   }
+  const getTrapBox4TypingRef1 = (elem: any) => {
+    trapBox4TypingRef1 = elem
+  }
+  const getTrapBox4TypingRef2 = (elem: any) => {
+    trapBox4TypingRef2 = elem
+  }
   const getTrapBox5TypingRef = (elem: any) => {
     trapBox5TypingRef = elem
   }
+  const getTrapBox5TypingRef1 = (elem: any) => {
+    trapBox5TypingRef1 = elem
+  }
+  const getTrapBox5TypingRef2 = (elem: any) => {
+    trapBox5TypingRef2 = elem
+  }
+  const getTrapBox5TypingRef3 = (elem: any) => {
+    trapBox5TypingRef3 = elem
+  }
+  const getTrapBox5TypingRef4 = (elem: any) => {
+    trapBox5TypingRef4 = elem
+  }
+  const getTrapBox5TypingRef5 = (elem: any) => {
+    trapBox5TypingRef5 = elem
+  }
+  const getTrapBox5TypingRef6 = (elem: any) => {
+    trapBox5TypingRef6 = elem
+  }
+
   const getTrapBox6TypingRef = (elem: any) => {
     trapBox6TypingRef = elem
+  }
+  const getTrapBox6TypingRef1 = (elem: any) => {
+    trapBox6TypingRef1 = elem
+  }
+  const getTrapBox6TypingRef2 = (elem: any) => {
+    trapBox6TypingRef2 = elem
+  }
+  const getTrapBox6TypingRef3 = (elem: any) => {
+    trapBox6TypingRef3 = elem
   }
 
   const getTrapBox2Ref = (elem: any) => {
@@ -182,29 +274,92 @@ export default function HomePage() {
   const getTrapBox8TypingRef = (elem: any) => {
     trapBox8TypingRef = elem
   }
+  const getTrapBox8TypingRef1 = (elem: any) => {
+    trapBox8TypingRef1 = elem
+  }
+  const getTrapBox8TypingRef2 = (elem: any) => {
+    trapBox8TypingRef2 = elem
+  }
   const getTrapBox9TypingRef = (elem: any) => {
     trapBox9TypingRef = elem
+  }
+  const getTrapBox9TypingRef1 = (elem: any) => {
+    trapBox9TypingRef1 = elem
   }
   const getTrapBox10TypingRef = (elem: any) => {
     trapBox10TypingRef = elem
   }
+  const getTrapBox10TypingRef1 = (elem: any) => {
+    trapBox10TypingRef1 = elem
+  }
+  const getTrapBox10TypingRef2 = (elem: any) => {
+    trapBox10TypingRef2 = elem
+  }
   const getTrapBox11TypingRef = (elem: any) => {
     trapBox11TypingRef = elem
+  }
+  const getTrapBox11TypingRef1 = (elem: any) => {
+    trapBox11TypingRef1 = elem
+  }
+  const getTrapBox11TypingRef2 = (elem: any) => {
+    trapBox11TypingRef2 = elem
   }
   const getTrapBox12TypingRef = (elem: any) => {
     trapBox12TypingRef = elem
   }
+  const getTrapBox12TypingRef1 = (elem: any) => {
+    trapBox12TypingRef1 = elem
+  }
+  const getTrapBox12TypingRef2 = (elem: any) => {
+    trapBox12TypingRef2 = elem
+  }
+  const getTrapBox12TypingRef3 = (elem: any) => {
+    trapBox12TypingRef3 = elem
+  }
   const getTrapBox13TypingRef = (elem: any) => {
     trapBox13TypingRef = elem
+  }
+  const getTrapBox13TypingRef1 = (elem: any) => {
+    trapBox13TypingRef1 = elem
   }
   const getTrapBox14TypingRef = (elem: any) => {
     trapBox14TypingRef = elem
   }
+  const getTrapBox14TypingRef1 = (elem: any) => {
+    trapBox14TypingRef1 = elem
+  }
+  const getTrapBox14TypingRef2 = (elem: any) => {
+    trapBox14TypingRef2 = elem
+  }
+  const getTrapBox14TypingRef3 = (elem: any) => {
+    trapBox14TypingRef3 = elem
+  }
   const getTrapBox15TypingRef = (elem: any) => {
     trapBox15TypingRef = elem
   }
+  const getTrapBox15TypingRef1 = (elem: any) => {
+    trapBox15TypingRef1 = elem
+  }
+  const getTrapBox15TypingRef2 = (elem: any) => {
+    trapBox15TypingRef2 = elem
+  }
+  const getTrapBox15TypingRef3 = (elem: any) => {
+    trapBox15TypingRef3 = elem
+  }
   const getTrapBox16TypingRef = (elem: any) => {
     trapBox16TypingRef = elem
+  }
+  const getTrapBox16TypingRef1 = (elem: any) => {
+    trapBox16TypingRef1 = elem
+  }
+  const getTrapBox16TypingRef2 = (elem: any) => {
+    trapBox16TypingRef2 = elem
+  }
+  const getTrapBox16TypingRef3 = (elem: any) => {
+    trapBox16TypingRef3 = elem
+  }
+  const getTrapBox16TypingRef4 = (elem: any) => {
+    trapBox16TypingRef4 = elem
   }
   const getTrapBox2 = (elem: any) => {
     trapBox2 = elem
@@ -269,6 +424,26 @@ export default function HomePage() {
   const getTrapBox7Cont = (elem: any) => {
     trapBox7Cont = elem
   }
+
+  const getTrapBox7TypingRef = (elem: any) => {
+    trapBox7TypingRef = elem
+  }
+  const getTrapBox7TypingRef1 = (elem: any) => {
+    trapBox7TypingRef1 = elem
+  }
+  const getTrapBox7TypingRef2 = (elem: any) => {
+    trapBox7TypingRef2 = elem
+  }
+  const getTrapBox7TypingRef3 = (elem: any) => {
+    trapBox7TypingRef3 = elem
+  }
+  const getTrapBox7TypingRef4 = (elem: any) => {
+    trapBox7TypingRef4 = elem
+  }
+  const getTrapBox7TypingRef5 = (elem: any) => {
+    trapBox7TypingRef5 = elem
+  }
+
   const getTrapBox8Cont = (elem: any) => {
     trapBox8Cont = elem
   }
@@ -402,6 +577,17 @@ export default function HomePage() {
     if (roadMapVideo.currentTime > 5) {
       trapBox2.classList.add('show')
       trapBox2TypingRef.classList.remove('hideAri');
+      setTimeout(() => {
+        trapBox2TypingRef1.classList.remove('hideAri')
+        setTimeout(() => {
+          trapBox2TypingRef2.classList.remove('hideAri')
+          setTimeout(() => {
+            trapBox2TypingRef3.classList.remove('hideAri')
+          }, 600);
+        }, 600);
+      }, 600);
+
+      // setTimeout(() => trapBox2TypingRef3.classList.remove('hideAri'), 400);
       if (roadMapVideo.currentTime > 6) {
         trapBox2Cont.style.transform = 'translateX(' + (150 - roadMapVideo.currentTime * 50) + '%)';
       }
@@ -412,6 +598,12 @@ export default function HomePage() {
     if (roadMapVideo.currentTime > 9) {
       trapBox3.classList.add('show')
       trapBox3TypingRef.classList.remove('hideAri');
+      setTimeout(() => {
+        trapBox3TypingRef1.classList.remove('hideAri');
+        setTimeout(() => {
+          trapBox3TypingRef2.classList.remove('hideAri');
+        }, 600)
+      }, 600)
       if (roadMapVideo.currentTime > 10) {
         trapBox3Cont.style.transform = 'translateX(' + (280 - roadMapVideo.currentTime * 40) + '%)';
       }
@@ -422,6 +614,12 @@ export default function HomePage() {
     if (roadMapVideo.currentTime > 15) {
       trapBox4.classList.add('show')
       trapBox4TypingRef.classList.remove('hideAri');
+      setTimeout(() => {
+        trapBox4TypingRef1.classList.remove('hideAri');
+        setTimeout(() => {
+          trapBox4TypingRef2.classList.remove('hideAri');
+        }, 600)
+      }, 600)
       if (roadMapVideo.currentTime > 16) {
         trapBox4Cont.style.transform = 'translateX(' + (500 - roadMapVideo.currentTime * 40) + '%)';
       }
@@ -432,6 +630,24 @@ export default function HomePage() {
     if (roadMapVideo.currentTime > 20) {
       trapBox5.classList.add('show')
       trapBox5TypingRef.classList.remove('hideAri');
+      setTimeout(() => {
+        trapBox5TypingRef1.classList.remove('hideAri');
+        setTimeout(() => {
+          trapBox5TypingRef2.classList.remove('hideAri');
+          setTimeout(() => {
+            trapBox5TypingRef3.classList.remove('hideAri');
+            setTimeout(() => {
+              trapBox5TypingRef4.classList.remove('hideAri');
+              setTimeout(() => {
+                trapBox5TypingRef5.classList.remove('hideAri');
+                setTimeout(() => {
+                  trapBox5TypingRef6.classList.remove('hideAri');
+                }, 600)
+              }, 600)
+            }, 600)
+          }, 600)
+        }, 600)
+      }, 600)
       if (roadMapVideo.currentTime > 22) {
         trapBox5Cont.style.transform = 'translateX(' + (800 - roadMapVideo.currentTime * 40) + '%)';
       }
@@ -441,21 +657,44 @@ export default function HomePage() {
     if (roadMapVideo.currentTime > 25) {
       trapBox6.classList.add('show')
       trapBox6TypingRef.classList.remove('hideAri');
-      trapBox4TypingRef.classList.remove('hideAri');
+      setTimeout(() => {
+        trapBox6TypingRef1.classList.remove('hideAri');
+        setTimeout(() => {
+          trapBox6TypingRef2.classList.remove('hideAri');
+          setTimeout(() => {
+            trapBox6TypingRef3.classList.remove('hideAri');
+          }, 600)
+        }, 600)
+      }, 600)
       if (roadMapVideo.currentTime > 27) {
         trapBox6Cont.style.transform = 'translateX(' + (1000 - roadMapVideo.currentTime * 40) + '%)';
       }
     } else {
       trapBox6.classList.remove('show')
     }
-    if (roadMapVideo.currentTime > 30 && !roadMapSec.classList.contains('opened-outro-video1')) {
+    if (roadMapVideo.currentTime > 30) {
       trapBox7.classList.add('show')
-      trapBox7Cont.classList.remove('hideAri');
+      trapBox7TypingRef.classList.remove('hideAri');
+      setTimeout(() => {
+        trapBox7TypingRef1.classList.remove('hideAri');
+        setTimeout(() => {
+          trapBox7TypingRef2.classList.remove('hideAri');
+          setTimeout(() => {
+            trapBox7TypingRef3.classList.remove('hideAri');
+            setTimeout(() => {
+              trapBox7TypingRef4.classList.remove('hideAri');
+              setTimeout(() => {
+                trapBox7TypingRef5.classList.remove('hideAri');
+              }, 600)
+            }, 600)
+          }, 600)
+        }, 600)
+      }, 600)
       if (roadMapVideo.currentTime > 32) {
         trapBox7Cont.style.transform = 'translateX(' + (1200 - roadMapVideo.currentTime * 40) + '%)';
       }
     } else {
-      setTimeout(() => trapBox7.classList.remove('show'), 2000)
+      trapBox7.classList.remove('show')
     }
 
     if (roadMapVideo.currentTime > 34) {
@@ -466,13 +705,14 @@ export default function HomePage() {
       trapBox8Cont.style.transform = 'translateX(' + (1300 - roadMapVideo.currentTime * 40) + '%)';
     }
 
-    if (roadMapVideo.currentTime > 38) {
-      trapBox8.classList.remove('show')
-    }
+    // if (roadMapVideo.currentTime > 38) {
+    //   trapBox8.classList.remove('show')
+    // }
 
     if (roadMapVideo.currentTime > 58 && roadMapVideo.currentTime <= 62) {
       trapBox9.classList.add('show')
       trapBox9TypingRef.classList.remove('hideAri');
+      setTimeout(() => trapBox9TypingRef1.classList.remove('hideAri'), 600)
     } else {
       trapBox9.classList.remove('show')
     }
@@ -480,6 +720,12 @@ export default function HomePage() {
     if (roadMapVideo.currentTime > 62 && roadMapVideo.currentTime <= 65) {
       trapBox10.classList.add('show')
       trapBox10TypingRef.classList.remove('hideAri');
+      setTimeout(() => {
+        trapBox10TypingRef1.classList.remove('hideAri')
+        setTimeout(() => {
+          trapBox10TypingRef2.classList.remove('hideAri')
+        }, 600);
+      }, 600);
     } else {
       trapBox10.classList.remove('show')
     }
@@ -487,12 +733,27 @@ export default function HomePage() {
     if (roadMapVideo.currentTime > 65 && roadMapVideo.currentTime <= 68) {
       trapBox11.classList.add('show')
       trapBox11TypingRef.classList.remove('hideAri');
+      setTimeout(() => {
+        trapBox11TypingRef1.classList.remove('hideAri');
+        setTimeout(() => {
+          trapBox11TypingRef2.classList.remove('hideAri');
+        }, 600)
+      }, 600)
     } else {
       trapBox11.classList.remove('show')
     }
     if (roadMapVideo.currentTime > 68 && roadMapVideo.currentTime < 72) {
       trapBox12.classList.add('show')
       trapBox12TypingRef.classList.remove('hideAri');
+      setTimeout(() => {
+        trapBox12TypingRef1.classList.remove('hideAri');
+        setTimeout(() => {
+          trapBox12TypingRef2.classList.remove('hideAri');
+          setTimeout(() => {
+            trapBox12TypingRef3.classList.remove('hideAri');
+          }, 600)
+        }, 600)
+      }, 600)
     } else {
       trapBox12.classList.remove('show')
     }
@@ -507,6 +768,9 @@ export default function HomePage() {
     if (roadMapVideo.currentTime > 73) {
       trapBox13.classList.add('show')
       trapBox13TypingRef.classList.remove('hideAri');
+      setTimeout(() => {
+        trapBox13TypingRef1.classList.remove('hideAri');
+      }, 600)
       if (roadMapVideo.currentTime > 74) {
         trapBox13Cont.style.transform = 'translateX(' + (300 - roadMapVideo.currentTime * 5) + '%)';
       }
@@ -518,6 +782,15 @@ export default function HomePage() {
       trapBox13Cont.style.transform = 'translateX(' + (300 - roadMapVideo.currentTime * 10) + '%)';
       trapBox14.classList.add('show')
       trapBox14TypingRef.classList.remove('hideAri');
+      setTimeout(() => {
+        trapBox14TypingRef1.classList.remove('hideAri');
+        setTimeout(() => {
+          trapBox14TypingRef2.classList.remove('hideAri');
+          setTimeout(() => {
+            trapBox14TypingRef3.classList.remove('hideAri');
+          }, 600)
+        }, 600)
+      }, 600)
       if (roadMapVideo.currentTime > 78.5 && roadMapVideo.currentTime <= 83) {
         trapBox14Cont.style.transform = 'translateX(' + (700 - roadMapVideo.currentTime * 10) + '%)';
       }
@@ -532,6 +805,15 @@ export default function HomePage() {
       trapBox14Cont.style.transform = 'translateX(' + (700 - roadMapVideo.currentTime * 15) + '%)';
       trapBox15.classList.add('show')
       trapBox15TypingRef.classList.remove('hideAri');
+      setTimeout(() => {
+        trapBox15TypingRef1.classList.remove('hideAri');
+        setTimeout(() => {
+          trapBox15TypingRef2.classList.remove('hideAri');
+          setTimeout(() => {
+            trapBox15TypingRef3.classList.remove('hideAri');
+          }, 600)
+        }, 600)
+      }, 600)
       if (roadMapVideo.currentTime > 88.5) {
         trapBox15Cont.style.transform = 'translateX(' + (700 - roadMapVideo.currentTime * 9) + '%)';
       }
@@ -543,6 +825,18 @@ export default function HomePage() {
       trapBox15Cont.style.transform = 'translateX(' + (800 - roadMapVideo.currentTime * 12) + '%)';
       trapBox16.classList.add('show')
       trapBox16TypingRef.classList.remove('hideAri');
+      setTimeout(() => {
+        trapBox16TypingRef1.classList.remove('hideAri');
+        setTimeout(() => {
+          trapBox16TypingRef2.classList.remove('hideAri');
+          setTimeout(() => {
+            trapBox16TypingRef3.classList.remove('hideAri');
+            setTimeout(() => {
+              trapBox16TypingRef4.classList.remove('hideAri');
+            }, 600)
+          }, 600)
+        }, 600)
+      }, 600)
       if (roadMapVideo.currentTime > 94.5) {
         trapBox16Cont.style.transform = 'translateX(' + (800 - roadMapVideo.currentTime * 10) + '%)';
       }
@@ -758,14 +1052,20 @@ export default function HomePage() {
     subVideo3.pause();
   };
   const onMouseWheelOutroVideo1 = (e: any) => {
+    trapBox7.classList.add('closedby-outro-video1')
     outroVideo1Cont.classList.add('active-removed');
-    trapBox7.classList.remove('show')
     outroVideo1.pause();
     setTimeout(() => {
       trapBox8.classList.add('show')
       trapBox2Ref.classList.remove('hideAri');
       trapBox8TypingRef.classList.remove('hideAri');
-    }, 1000)
+      setTimeout(() => {
+        trapBox8TypingRef1.classList.remove('hideAri');
+        setTimeout(() => {
+          trapBox8TypingRef2.classList.remove('hideAri');
+        }, 600)
+      }, 600)
+    }, 1400)
   };
   const onMouseWheelOutroVideo3 = (e: any) => {
     outroVideo3Cont.classList.add('active-removed');
@@ -852,82 +1152,122 @@ export default function HomePage() {
               </div>
               <div className='text-box trap-box-1-1 trap-box-2' ref={getTrapBox2}>
                 <div className='box-cont' ref={getTrapBox2Cont}>
-                  <h6 className='typing-animate typing-animate-start hideAri' ref={getTrapBox2TypingRef}>Have you ever<br />underestinated<br />your fleet's<br />operating budget?</h6>
+                  <h6 className='typing-animate typing-animate-start hideAri' ref={getTrapBox2TypingRef}>Have you ever</h6>
+                  <h6 className='typing-animate typing-animate-start hideAri' ref={getTrapBox2TypingRef1}>underestinated</h6>
+                  <h6 className='typing-animate typing-animate-start hideAri' ref={getTrapBox2TypingRef2}>your fleet's</h6>
+                  <h6 className='typing-animate typing-animate-start hideAri' ref={getTrapBox2TypingRef3}>operating budget?</h6>
                 </div>
               </div>
               <div className='text-box trap-box-3' ref={getTrapBox3}>
                 <div className='box-cont' ref={getTrapBox3Cont}>
-                  <h6 className='typing-animate typing-animate-start hideAri' ref={getTrapBox3TypingRef}>If so, you wouldn't be the<br />first. It's a common blind<br />spot in the budget silo.</h6>
+                  <h6 className='typing-animate typing-animate-start hideAri' ref={getTrapBox3TypingRef}>If so, you wouldn't be the</h6>
+                  <h6 className='typing-animate typing-animate-start hideAri' ref={getTrapBox3TypingRef1}>first. It's a common blind</h6>
+                  <h6 className='typing-animate typing-animate-start hideAri' ref={getTrapBox3TypingRef2}>spot in the budget silo.</h6>
                 </div>
               </div>
               <div className='text-box trap-box-4' ref={getTrapBox4}>
                 <div className='box-cont' ref={getTrapBox4Cont}>
-                  <h6 className='typing-animate typing-animate-start hideAri' ref={getTrapBox4TypingRef}>But what if you<br />didn't have to<br />guess?</h6>
+                  <h6 className='typing-animate typing-animate-start hideAri' ref={getTrapBox4TypingRef}>But what if you</h6>
+                  <h6 className='typing-animate typing-animate-start hideAri' ref={getTrapBox4TypingRef1}>didn't have to</h6>
+                  <h6 className='typing-animate typing-animate-start hideAri' ref={getTrapBox4TypingRef2}>guess?</h6>
                 </div>
               </div>
               <div className='text-box trap-box-5' ref={getTrapBox5}>
                 <div className='box-cont' ref={getTrapBox5Cont}>
-                  <h6 className='typing-animate typing-animate-start hideAri' ref={getTrapBox5TypingRef}>What if you could<br />quantify your budget<br />with far more certainty<br />and forecast<br />replacement-versus-rep<br />air two, three or four<br />years in advance?</h6>
+                  <h6 className='typing-animate typing-animate-start hideAri' ref={getTrapBox5TypingRef}>What if you could</h6>
+                  <h6 className='typing-animate typing-animate-start hideAri' ref={getTrapBox5TypingRef1}>quantify your budget</h6>
+                  <h6 className='typing-animate typing-animate-start hideAri' ref={getTrapBox5TypingRef2}>with far more certainty</h6>
+                  <h6 className='typing-animate typing-animate-start hideAri' ref={getTrapBox5TypingRef3}>and forecast</h6>
+                  <h6 className='typing-animate typing-animate-start hideAri' ref={getTrapBox5TypingRef4}>replacement-versus-rep</h6>
+                  <h6 className='typing-animate typing-animate-start hideAri' ref={getTrapBox5TypingRef5}>air two, three or four</h6>
+                  <h6 className='typing-animate typing-animate-start hideAri' ref={getTrapBox5TypingRef6}>years in advance?</h6>
                 </div>
               </div>
               <div className='text-box trap-box-6' ref={getTrapBox6}>
                 <div className='box-cont' ref={getTrapBox6Cont}>
-                  <h6 className='typing-animate typing-animate-start hideAri' ref={getTrapBox6TypingRef}>What if you could see how today's<br />replacement decissions will impact both<br />short-term operating expenses and<br />long-term capital needs?</h6>
+                  <h6 className='typing-animate typing-animate-start hideAri' ref={getTrapBox6TypingRef}>What if you could see how today's</h6>
+                  <h6 className='typing-animate typing-animate-start hideAri' ref={getTrapBox6TypingRef1}>replacement decissions will impact both</h6>
+                  <h6 className='typing-animate typing-animate-start hideAri' ref={getTrapBox6TypingRef2}>short-term operating expenses and</h6>
+                  <h6 className='typing-animate typing-animate-start hideAri' ref={getTrapBox6TypingRef3}>long-term capital needs?</h6>
                 </div>
               </div>
               <div className='text-box trap-box-7' ref={getTrapBox7}>
-                <div className='box-cont typing-animate typing-animate-start hideAri' ref={getTrapBox7Cont}>
-                  <h2>Did you catch<br />the hidden<br />easter eggs<br />so far?</h2>
-                  <h6>There were at least 4.</h6>
-                  <h6>Plus you ran a STOP sign.</h6>
+                <div className='box-cont' ref={getTrapBox7Cont}>
+                  <h2 className='typing-animate typing-animate-start hideAri' ref={getTrapBox7TypingRef}>Did you catch</h2>
+                  <h2 className='typing-animate typing-animate-start hideAri' ref={getTrapBox7TypingRef1}>the hidden</h2>
+                  <h2 className='typing-animate typing-animate-start hideAri' ref={getTrapBox7TypingRef2}>easter eggs</h2>
+                  <h2 className='typing-animate typing-animate-start hideAri' ref={getTrapBox7TypingRef3}>so far?</h2>
+                  <h6 className='typing-animate typing-animate-start hideAri' ref={getTrapBox7TypingRef4}>There were at least 4.</h6>
+                  <h6 className='typing-animate typing-animate-start hideAri' ref={getTrapBox7TypingRef5}>Plus you ran a STOP sign.</h6>
                 </div>
               </div>
               <div className='text-box trap-box-8' ref={getTrapBox8}>
                 <div className='box-cont' ref={getTrapBox8Cont}>
-                  <h3 className='trap-title hideAri' ref={getTrapBox2Ref}>Trap 2</h3>
-                  <h2 className='typing-animate typing-animate-start hideAri' ref={getTrapBox8TypingRef}>Annual<br />Supply Chain<br />Bidding</h2>
+                  <h3 className='trap-title animate__animated animate__zoomIn hideAri' ref={getTrapBox2Ref}>Trap 2</h3>
+                  <h2 className='typing-animate typing-animate-start hideAri' ref={getTrapBox8TypingRef}>Annual</h2>
+                  <h2 className='typing-animate typing-animate-start hideAri' ref={getTrapBox8TypingRef1}>Supply Chain</h2>
+                  <h2 className='typing-animate typing-animate-start hideAri' ref={getTrapBox8TypingRef2}>Bidding</h2>
                 </div>
               </div>
               <div className='text-box trap-box-9' ref={getTrapBox9}>
                 <div className='box-cont'>
-                  <h3 className='trap-title'>Trap 3</h3>
-                  <h2 className='typing-animate typing-animate-start hideAri' ref={getTrapBox9TypingRef}>Minimizing<br />Upfit Price</h2>
+                  <h3 className='trap-title animate__animated animate__zoomIn'>Trap 3</h3>
+                  <h2 className='typing-animate typing-animate-start hideAri' ref={getTrapBox9TypingRef}>Minimizing</h2>
+                  <h2 className='typing-animate typing-animate-start hideAri' ref={getTrapBox9TypingRef1}>Upfit Price</h2>
                 </div>
               </div>
               <div className='text-box trap-box-10' ref={getTrapBox10}>
                 <div className='box-cont'>
-                  <h6 className='typing-animate typing-animate-start hideAri' ref={getTrapBox10TypingRef}>All too often, the design and upfit silo is so<br />focused on immediate savings, it tries to<br />minimize the price of upfitting.</h6>
+                  <h6 className='typing-animate typing-animate-start hideAri' ref={getTrapBox10TypingRef}>All too often, the design and upfit silo is so</h6>
+                  <h6 className='typing-animate typing-animate-start hideAri' ref={getTrapBox10TypingRef1}>focused on immediate savings, it tries to</h6>
+                  <h6 className='typing-animate typing-animate-start hideAri' ref={getTrapBox10TypingRef2}>minimize the price of upfitting.</h6>
                 </div>
               </div>
               <div className='text-box trap-box-11' ref={getTrapBox11}>
                 <div className='box-cont'>
-                  <h6 className='typing-animate typing-animate-start hideAri' ref={getTrapBox11TypingRef}>That's not surprising.<br />Quick savings are easy to see<br />on an annual spreadsheet.</h6>
+                  <h6 className='typing-animate typing-animate-start hideAri' ref={getTrapBox11TypingRef}>That's not surprising.</h6>
+                  <h6 className='typing-animate typing-animate-start hideAri' ref={getTrapBox11TypingRef1}>Quick savings are easy to see</h6>
+                  <h6 className='typing-animate typing-animate-start hideAri' ref={getTrapBox11TypingRef2}>on an annual spreadsheet.</h6>
                 </div>
               </div>
               <div className='text-box trap-box-12' ref={getTrapBox12}>
                 <div className='box-cont'>
-                  <h6 className='typing-animate typing-animate-start hideAri' ref={getTrapBox12TypingRef}>But whether you're operating a fleet of vans or<br />sedans, if you are focused on thhe upfit bill, as<br />oposed to your upfit spaces, you will likely end up<br />spending more on the long run.</h6>
+                  <h6 className='typing-animate typing-animate-start hideAri' ref={getTrapBox12TypingRef}>But whether you're operating a fleet of vans or</h6>
+                  <h6 className='typing-animate typing-animate-start hideAri' ref={getTrapBox12TypingRef1}>sedans, if you are focused on thhe upfit bill, as</h6>
+                  <h6 className='typing-animate typing-animate-start hideAri' ref={getTrapBox12TypingRef2}>oposed to your upfit spaces, you will likely end up</h6>
+                  <h6 className='typing-animate typing-animate-start hideAri' ref={getTrapBox12TypingRef3}>spending more on the long run.</h6>
                 </div>
               </div>
               <div className='text-box trap-box-13' ref={getTrapBox13}>
                 <div className='box-cont' ref={getTrapBox13Cont}>
-                  <h3 className='trap-title'>Trap 4</h3>
-                  <h2 className='typing-animate typing-animate-start hideAri' ref={getTrapBox13TypingRef}>Getting tangled<br />in the weeds</h2>
+                  <h3 className='trap-title animate__animated animate__zoomIn'>Trap 4</h3>
+                  <h2 className='typing-animate typing-animate-start hideAri' ref={getTrapBox13TypingRef}>Getting tangled</h2>
+                  <h2 className='typing-animate typing-animate-start hideAri' ref={getTrapBox13TypingRef1}>in the weeds</h2>
                 </div>
               </div>
               <div className='text-box trap-box-14' ref={getTrapBox14}>
                 <div className='box-cont' ref={getTrapBox14Cont}>
-                  <h6 className='typing-animate typing-animate-start hideAri' ref={getTrapBox14TypingRef}>Supply chain process can<br />be a bear, with hidden traps<br />that lower productivity and<br />increase costs.</h6>
+                  <h6 className='typing-animate typing-animate-start hideAri' ref={getTrapBox14TypingRef}>Supply chain process can</h6>
+                  <h6 className='typing-animate typing-animate-start hideAri' ref={getTrapBox14TypingRef1}>be a bear, with hidden traps</h6>
+                  <h6 className='typing-animate typing-animate-start hideAri' ref={getTrapBox14TypingRef2}>that lower productivity and</h6>
+                  <h6 className='typing-animate typing-animate-start hideAri' ref={getTrapBox14TypingRef3}>increase costs.</h6>
                 </div>
               </div>
               <div className='text-box trap-box-15' ref={getTrapBox15}>
                 <div className='box-cont' ref={getTrapBox15Cont}>
-                  <h6 className='typing-animate typing-animate-start hideAri' ref={getTrapBox15TypingRef}>It's the nature of the beast,<br />which too often forces fleet<br />managers to deal with<br />time-consuming distractions.</h6>
+                  <h6 className='typing-animate typing-animate-start hideAri' ref={getTrapBox15TypingRef}>It's the nature of the beast,</h6>
+                  <h6 className='typing-animate typing-animate-start hideAri' ref={getTrapBox15TypingRef1}>which too often forces fleet</h6>
+                  <h6 className='typing-animate typing-animate-start hideAri' ref={getTrapBox15TypingRef2}>managers to deal with</h6>
+                  <h6 className='typing-animate typing-animate-start hideAri' ref={getTrapBox15TypingRef3}>time-consuming distractions.</h6>
                 </div>
               </div>
               <div className='text-box trap-box-16' ref={getTrapBox16}>
                 <div className='box-cont' ref={getTrapBox16Cont}>
-                  <h6 className='typing-animate typing-animate-start hideAri' ref={getTrapBox16TypingRef}>Like drafting the specs<br />themselves, or untangling<br />status updates from your<br />fleet, management company<br />and supplier.</h6>
+                  <h6 className='typing-animate typing-animate-start hideAri' ref={getTrapBox16TypingRef}>Like drafting the specs</h6>
+                  <h6 className='typing-animate typing-animate-start hideAri' ref={getTrapBox16TypingRef1}>themselves, or untangling</h6>
+                  <h6 className='typing-animate typing-animate-start hideAri' ref={getTrapBox16TypingRef2}>status updates from your</h6>
+                  <h6 className='typing-animate typing-animate-start hideAri' ref={getTrapBox16TypingRef3}>fleet, management company</h6>
+                  <h6 className='typing-animate typing-animate-start hideAri' ref={getTrapBox16TypingRef4}>and supplier.</h6>
                 </div>
               </div>
             </div>

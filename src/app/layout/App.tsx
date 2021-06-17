@@ -12,7 +12,7 @@ function App() {
   const { commonStore } = useStore();
 
   useEffect(() => {
-    setTimeout(() => commonStore.setAppLoaded(), 7000);
+    setTimeout(() => commonStore.setAppLoaded(), 4000);
     // const runIndexDb = async () => {
     //   await videoStore.createObjectStore(['roadMaps']);
     //   await videoStore.getValue('roadMaps', 1).then(v => {
